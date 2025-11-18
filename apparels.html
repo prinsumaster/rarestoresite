@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>RareStore — Apparels</title>
+  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <style>
+    body{font-family:Inter,Arial;background:#0b0b0b;color:#F3EFE8;margin:0;padding:28px}
+    h1{font-family:Playfair Display}
+    .controls{display:flex;gap:12px;margin-top:12px}
+    select,input{padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:#0f0f0f;color:#fff}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:20px}
+    .card{background:#0f0f0f;padding:12px;border-radius:12px}
+    .card img{width:100%;border-radius:8px}
+    @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.grid{grid-template-columns:1fr}}
+  </style>
+  
+    <style>
+    /* Page transition overlay */
+    .page-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#0b0b0b;opacity:0;pointer-events:none;transition:opacity .28s ease}
+    .page-overlay.show{opacity:1;pointer-events:auto}
+    .overlay-logo{width:140px;height:140px;display:flex;align-items:center;justify-content:center;position:relative}
+    .overlay-logo img{display:block;width:140px;height:140px;object-fit:contain;border-radius:6px}
+    .overlay-sub{color:#F3EFE8;margin-top:12px;opacity:0;text-align:center}
+    .particles .particle{position:absolute;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle,#fff8e6,#A89060);opacity:0}
+    </style>
+    
+</head>
+<body>
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <div><h1>Apparels</h1><div style="color:#bdbdbd">T-shirts • Shirts • Hoodies</div></div>
+    <div><a href="index.html" style="color:#bdbdbd;text-decoration:none">← Back to RareStore</a></div>
+  </div>
+  <div class="controls">
+    <label>Sort: <select id="sort"><option value="relevance">Relevance</option><option value="low">Price: Low → High</option><option value="high">Price: High → Low</option></select></label>
+    <label>Size: <select id="sizeFilter"><option value="all">All</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></label>
+    <label>Search: <input id="search" placeholder="Search product"></label>
+  </div>
+  <div class="grid" id="grid">
+    
+    <div class="card" data-price="499" data-sizes="S,M,L" data-title="Basic T-Shirt"><img src="https://via.placeholder.com/600x400.png?text=Basic+T-Shirt"><div style="font-weight:700;margin-top:8px">Basic T-Shirt</div><div style="color:#bdbdbd">Cotton • ₹499</div><div style="margin-top:8px"><a href="https://wa.me/919999999999?text=Order%20Basic%20T-Shirt">WhatsApp</a></div></div>
+    <div class="card" data-price="799" data-sizes="M,L,XL" data-title="Casual Shirt"><img src="https://via.placeholder.com/600x400.png?text=Casual+Shirt"><div style="font-weight:700;margin-top:8px">Casual Shirt</div><div style="color:#bdbdbd">Slim fit • ₹799</div><div style="margin-top:8px"><a href="https://wa.me/919999999999?text=Order%20Casual%20Shirt">WhatsApp</a></div></div>
+    <div class="card" data-price="1199" data-sizes="M,L,XL" data-title="Comfy Hoodie"><img src="https://via.placeholder.com/600x400.png?text=Comfy+Hoodie"><div style="font-weight:700;margin-top:8px">Comfy Hoodie</div><div style="color:#bdbdbd">Warm • ₹1199</div><div style="margin-top:8px"><a href="https://wa.me/919999999999?text=Order%20Comfy%20Hoodie">WhatsApp</a></div></div>
+    <div class="card" data-price="699" data-sizes="M,L" data-title="Comfort Joggers"><img src="https://via.placeholder.com/600x400.png?text=Comfort+Joggers"><div style="font-weight:700;margin-top:8px">Comfort Joggers</div><div style="color:#bdbdbd">Everyday • ₹699</div><div style="margin-top:8px"><a href="https://wa.me/919999999999?text=Order%20Comfort%20Joggers">WhatsApp</a></div></div>
+
+  </div>
+
+  
+    <!-- Page overlay -->
+    <div class="page-overlay" id="pageOverlay" aria-hidden="true">
+      <div style="text-align:center;position:relative">
+        <div class="overlay-logo" id="overlayLogo">
+          <img id="overlayLogoImg" src="assets/rarestore-logo.png" alt="RareStore logo">
+          <div class="particles" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none"></div>
+        </div>
+        <div class="overlay-sub" id="overlaySub">RareStore</div>
+      </div>
+    </div>
+
+    <script>
+    // Overlay animation script (GSAP)
+    gsap.registerPlugin(ScrollTrigger);
+    const overlay = document.getElementById('pageOverlay');
+    const overlaySub = document.getElementById('overlaySub');
+    let navigating = false;
+
+    function createParticles(count){
+      const container = document.querySelector('.particles');
+      if(!container) return [];
+      const parts = [];
+      for(let i=0;i<count;i++){
+        const d = document.createElement('div');
+        d.className = 'particle';
+        d.style.left = '50%'; d.style.top = '50%';
+        container.appendChild(d);
+        parts.push(d);
+      }
+      return parts;
+    }
+
+    function burstParticles(){
+      const parts = createParticles(10);
+      parts.forEach((p,i)=>{
+        const angle = (i / parts.length) * Math.PI * 2 + (Math.random()-0.5)*0.6;
+        const dist = 70 + Math.random()*40;
+        const tx = Math.cos(angle)*dist;
+        const ty = Math.sin(angle)*dist;
+        gsap.to(p,{opacity:1,scale:1,duration:0.18});
+        gsap.to(p,{x:tx,y:ty,opacity:0,duration:0.9,delay:0.08+Math.random()*0.08,ease:'power3.out',onComplete:()=>p.remove()});
+      })
+    }
+
+    function showOverlayAnimation(href, isHash){
+      if(navigating) return;
+      navigating = true;
+      overlay.classList.add('show');
+      const logoImg = document.getElementById('overlayLogoImg');
+      const txt = document.getElementById('overlaySub');
+
+      const tl = gsap.timeline();
+      tl.fromTo(logoImg,{scale:0.6,rotation:0},{scale:1.03,rotation:6,duration:0.45,ease:'power2.out'})
+        .to(logoImg,{scale:0.95,rotation:18,duration:0.6,ease:'power3.inOut'})
+        .fromTo(txt,{opacity:0,y:8},{opacity:1,y:0,duration:0.36},'-=0.5')
+        .add(()=>{ burstParticles(); })
+        .to(logoImg,{scale:0.02,opacity:0,duration:0.45,delay:0.22,ease:'power4.in'})
+        .to(overlay,{opacity:0,duration:0.18,delay:0.05, onComplete:function(){
+          overlay.classList.remove('show');
+          gsap.set('.overlay-logo',{clearProps:'all'});
+          navigating = false;
+          if(isHash && href.startsWith('#')){
+            var target = document.querySelector(href);
+            if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+          } else {
+            window.location.href = href;
+          }
+        }});
+    }
+
+    // Intercept links to show animation (preserve ctrl/cmd & _blank)
+    document.querySelectorAll('a').forEach(function(a){
+      var href = a.getAttribute('href');
+      if(!href) return;
+      if(href.indexOf('mailto:')===0 || href.indexOf('tel:')===0 || href.indexOf('javascript:')===0) return;
+      a.addEventListener('click', function(e){
+        if(e.ctrlKey || e.metaKey || a.target === '_blank') return;
+        e.preventDefault();
+        showOverlayAnimation(href, href.indexOf('#')===0);
+      })
+    });
+
+    // small idle pulse
+    gsap.to('#overlayLogoImg',{scale:1.02,duration:2,repeat:-1,yoyo:true,ease:'sine.inOut'});
+    </script>
+
+
+  <script>
+    const grid = document.getElementById('grid');
+    const sortSel = document.getElementById('sort');
+    const sizeSel = document.getElementById('sizeFilter');
+    const search = document.getElementById('search');
+    function applyFilters(){
+      const cards = Array.from(grid.children);
+      const sizeVal = sizeSel ? sizeSel.value : 'all';
+      const q = search ? search.value.trim().toLowerCase() : '';
+      let filtered = cards.filter(c=>{
+        const title = (c.dataset.title||'').toLowerCase();
+        const sizes = (c.dataset.sizes||'').split(',').filter(Boolean);
+        if(sizeVal!=='all' && sizes.length && !sizes.includes(sizeVal)) return false;
+        if(q && !title.includes(q)) return false;
+        return true;
+      });
+      const sortVal = sortSel.value;
+      if(sortVal==='low') filtered.sort((a,b)=> parseInt(a.dataset.price||0)-parseInt(b.dataset.price||0));
+      if(sortVal==='high') filtered.sort((a,b)=> parseInt(b.dataset.price||0)-parseInt(a.dataset.price||0));
+      grid.innerHTML='';
+      filtered.forEach(c=> grid.appendChild(c));
+    }
+    sortSel.addEventListener('change', applyFilters);
+    if(sizeSel) sizeSel.addEventListener('change', applyFilters);
+    if(search) search.addEventListener('input', applyFilters);
+  </script>
+</body>
+</html>

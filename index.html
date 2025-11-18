@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>RareStore — Demo</title>
+  
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+:root{--bg:#0b0b0b;--cream:#F3EFE8;--gold:#A89060;--muted:#bdbdbd;--maxw:1200px}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,system-ui,Arial;color:var(--cream);background:linear-gradient(180deg,#050505 0%, #0b0b0b 60%)}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--maxw);margin:0 auto;padding:40px 20px}
+header{position:fixed;left:0;right:0;top:0;z-index:40;background:transparent;padding:18px 0}
+.nav{display:flex;justify-content:space-between;align-items:center}
+.logo .mark{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--gold),#cdb57b);display:flex;align-items:center;justify-content:center;color:#111;font-weight:800;font-family:Playfair Display}
+.navlinks{display:flex;gap:18px;align-items:center}
+.btn-ghost{padding:8px 14px;border-radius:8px;border:1px solid rgba(255,255,255,0.08);font-weight:600}
+.hero{min-height:92vh;display:grid;grid-template-columns:1fr 520px;gap:40px;align-items:center;padding-top:24px}
+h1{font-family:Playfair Display;font-weight:700;font-size:48px;margin:0 0 14px;line-height:1.02}
+.product-card{width:420px;height:420px;border-radius:18px;background:linear-gradient(180deg,rgba(255,255,255,0.03),rgba(0,0,0,0.12));backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 60px rgba(0,0,0,0.6)}
+.track{display:flex;gap:22px;padding:10px 6px;will-change:transform}
+.card{min-width:220px;background:#0f0f0f;border-radius:12px;padding:12px;box-shadow:0 6px 24px rgba(0,0,0,0.6);transition:transform .28s ease}
+.card:hover{transform:translateY(-8px) scale(1.02)}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:28px}
+footer{padding:36px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03);margin-top:60px}
+@media (max-width:980px){.hero{grid-template-columns:1fr;gap:26px;padding-top:86px}.product-card{width:320px;height:320px}.grid-3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.grid-3{grid-template-columns:1fr}.hero h1{font-size:34px}}
+</style>
+
+    <style>
+    /* Page transition overlay */
+    .page-overlay{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#0b0b0b;opacity:0;pointer-events:none;transition:opacity .28s ease}
+    .page-overlay.show{opacity:1;pointer-events:auto}
+    .overlay-logo{width:140px;height:140px;display:flex;align-items:center;justify-content:center;position:relative}
+    .overlay-logo img{display:block;width:140px;height:140px;object-fit:contain;border-radius:6px}
+    .overlay-sub{color:#F3EFE8;margin-top:12px;opacity:0;text-align:center}
+    .particles .particle{position:absolute;width:12px;height:12px;border-radius:50%;background:radial-gradient(circle,#fff8e6,#A89060);opacity:0}
+    </style>
+    
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <div class="mark">RS</div>
+        <div><div style="font-weight:700">RareStore</div><div style="font-size:12px;color:var(--muted);margin-top:2px">Home goods • Essentials</div></div>
+      </div>
+      <nav class="navlinks">
+        <a class="btn-ghost" href="shoes.html">Shoes</a>
+        <a class="btn-ghost" href="watches.html">Watches</a>
+        <a class="btn-ghost" href="apparels.html">Apparels</a>
+        <a class="btn-ghost" href="winter.html">Winter</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="hero" id="hero">
+      <div>
+        <div class="eyebrow" style="color:var(--muted);letter-spacing:2px;font-size:12px;margin-bottom:8px">NEW DROP • LIMITED</div>
+        <h1>Smart designs you actually want at home.</h1>
+        <p class="lead" style="color:var(--muted);max-width:650px">Curated home essentials — minimal, useful, and designed for everyday life. Browse, WhatsApp to order, collect, and enjoy.</p>
+        <div class="cta" style="margin-top:22px;display:flex;gap:12px">
+          <a class="btn-primary" href="#products" style="background:var(--gold);color:#0b0b0b;padding:12px 18px;border-radius:12px;font-weight:700">Shop Now</a>
+          <a class="btn-ghost" href="#contact">Contact</a>
+        </div>
+        <div class="carousel" style="margin-top:30px">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px"><strong style="font-size:14px">Trending</strong><span style="color:var(--muted);font-size:13px"> — hand-picked</span></div>
+          <div class="track" id="track">
+            <div class="card"><img src="https://via.placeholder.com/400x300.png?text=Product+1"><div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><div style="font-size:14px">Classic Umbrella Hook</div><div style="font-weight:700;color:var(--gold)">₹399</div></div><div style="margin-top:8px;display:flex;gap:8px"><a class="btn-ghost" href="https://wa.me/919999999999?text=Hi%20I%20want%20to%20order%20Classic%20Umbrella%20Hook">WhatsApp</a></div></div>
+            <div class="card"><img src="https://via.placeholder.com/400x300.png?text=Product+2"><div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><div style="font-size:14px">Rainproof Jacket</div><div style="font-weight:700;color:var(--gold)">₹899</div></div><div style="margin-top:8px;display:flex;gap:8px"><a class="btn-ghost" href="https://wa.me/919999999999?text=Hi%20I%20want%20to%20order%20Rainproof%20Jacket">WhatsApp</a></div></div>
+            <div class="card"><img src="https://via.placeholder.com/400x300.png?text=Product+3"><div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><div style="font-size:14px">Soap Dispenser</div><div style="font-weight:700;color:var(--gold)">₹349</div></div><div style="margin-top:8px;display:flex;gap:8px"><a class="btn-ghost" href="https://wa.me/919999999999?text=Hi%20I%20want%20to%20order%20Soap%20Dispenser">WhatsApp</a></div></div>
+            <div class="card"><img src="https://via.placeholder.com/400x300.png?text=Product+4"><div style="display:flex;justify-content:space-between;align-items:center;margin-top:6px"><div style="font-size:14px">Water Bottle</div><div style="font-weight:700;color:var(--gold)">₹299</div></div><div style="margin-top:8px;display:flex;gap:8px"><a class="btn-ghost" href="https://wa.me/919999999999?text=Hi%20I%20want%20to%20order%20Water%20Bottle">WhatsApp</a></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="glow" style="position:absolute;right:-80px;top:40px;width:420px;height:420px;border-radius:50%;filter:blur(60px);opacity:0.25;background:radial-gradient(circle at 30% 30%, #bfa56a 0%, transparent 40%)"></div>
+        <div class="product-card" id="productCard"><img id="productImg" src="https://via.placeholder.com/600x600.png?text=Featured+Product" alt="featured"></div>
+      </div>
+    </section>
+    <section id="products" style="padding-top:20px;padding-bottom:10px">
+      <h2 style="font-family:Playfair Display;color:var(--cream)">Featured Products</h2>
+      <div class="grid-3">
+        <div style="background:#0f0f0f;padding:14px;border-radius:12px"><img src="https://via.placeholder.com/600x400.png?text=Item+A" style="width:100%;border-radius:8px"><div style="margin-top:8px;font-weight:700">Item A</div><div style="color:var(--muted)">Simple, durable</div><div style="margin-top:8px;display:flex;gap:8px"><a class="btn-primary" href="https://wa.me/919999999999?text=Hi%20I%20want%20to%20order%20Item%20A">Order</a></div></div>
+        <div style="background:#0f0f0f;padding:14px;border-radius:12px"><img src="https://via.placeholder.com/600x400.png?text=Item+B" style="width:100%;border-radius:8px"><div style="margin-top:8px;font-weight:700">Item B</div><div style="color:var(--muted)">Compact & stylish</div><div style="margin-top:8px;display:flex;gap:8px"><a class="btn-primary" href="https://wa.me/919999999999?text=Hi%20I%20want%20to%20order%20Item%20B">Order</a></div></div>
+        <div style="background:#0f0f0f;padding:14px;border-radius:12px"><img src="https://via.placeholder.com/600x400.png?text=Item+C" style="width:100%;border-radius:8px"><div style="margin-top:8px;font-weight:700">Item C</div><div style="color:var(--muted)">Minimal, useful</div><div style="margin-top:8px;display:flex;gap:8px"><a class="btn-primary" href="https://wa.me/919999999999?text=Hi%20I%20want%20to%20order%20Item%20C">Order</a></div></div>
+      </div>
+    </section>
+    <section id="categories" style="margin-top:44px">
+      <h2 style="font-family:Playfair Display;color:var(--cream)">Categories</h2>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:12px">
+        <a href="shoes.html" style="background:#0f0f0f;padding:20px;border-radius:12px;text-align:center;font-weight:700">Shoes</a>
+        <a href="watches.html" style="background:#0f0f0f;padding:20px;border-radius:12px;text-align:center;font-weight:700">Watches</a>
+        <a href="apparels.html" style="background:#0f0f0f;padding:20px;border-radius:12px;text-align:center;font-weight:700">Apparels</a>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr;margin-top:20px"><a href="winter.html" style="background:#0f0f0f;padding:20px;border-radius:12px;text-align:center;font-weight:700">Winter Collection</a></div>
+    </section>
+    <section id="about" style="margin-top:44px"><h3 style="font-family:Playfair Display">About RareStore</h3><p style="color:var(--muted);max-width:900px">Demo single-file template — replace images & number with yours.</p></section>
+    <section id="contact" style="margin-top:32px"><h3>Contact</h3><p style="color:var(--muted)">Instagram: <a href="https://instagram.com/rarestore.co.in" target="_blank">@rarestore.co.in</a> • WhatsApp: <a href="https://wa.me/919999999999">+91 99999 99999</a></p></section>
+    <footer><div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap"><div style="color:var(--muted)">© RareStore — demo</div><div style="color:var(--muted)">Built for free hosting — edit & replace</div></div></footer>
+  </main>
+
+    <!-- Page overlay -->
+    <div class="page-overlay" id="pageOverlay" aria-hidden="true">
+      <div style="text-align:center;position:relative">
+        <div class="overlay-logo" id="overlayLogo">
+          <img id="overlayLogoImg" src="assets/rarestore-logo.png" alt="RareStore logo">
+          <div class="particles" aria-hidden="true" style="position:absolute;inset:0;pointer-events:none"></div>
+        </div>
+        <div class="overlay-sub" id="overlaySub">RareStore</div>
+      </div>
+    </div>
+
+    <script>
+    // Overlay animation script (GSAP)
+    gsap.registerPlugin(ScrollTrigger);
+    const overlay = document.getElementById('pageOverlay');
+    const overlaySub = document.getElementById('overlaySub');
+    let navigating = false;
+
+    function createParticles(count){
+      const container = document.querySelector('.particles');
+      if(!container) return [];
+      const parts = [];
+      for(let i=0;i<count;i++){
+        const d = document.createElement('div');
+        d.className = 'particle';
+        d.style.left = '50%'; d.style.top = '50%';
+        container.appendChild(d);
+        parts.push(d);
+      }
+      return parts;
+    }
+
+    function burstParticles(){
+      const parts = createParticles(10);
+      parts.forEach((p,i)=>{
+        const angle = (i / parts.length) * Math.PI * 2 + (Math.random()-0.5)*0.6;
+        const dist = 70 + Math.random()*40;
+        const tx = Math.cos(angle)*dist;
+        const ty = Math.sin(angle)*dist;
+        gsap.to(p,{opacity:1,scale:1,duration:0.18});
+        gsap.to(p,{x:tx,y:ty,opacity:0,duration:0.9,delay:0.08+Math.random()*0.08,ease:'power3.out',onComplete:()=>p.remove()});
+      })
+    }
+
+    function showOverlayAnimation(href, isHash){
+      if(navigating) return;
+      navigating = true;
+      overlay.classList.add('show');
+      const logoImg = document.getElementById('overlayLogoImg');
+      const txt = document.getElementById('overlaySub');
+
+      const tl = gsap.timeline();
+      tl.fromTo(logoImg,{scale:0.6,rotation:0},{scale:1.03,rotation:6,duration:0.45,ease:'power2.out'})
+        .to(logoImg,{scale:0.95,rotation:18,duration:0.6,ease:'power3.inOut'})
+        .fromTo(txt,{opacity:0,y:8},{opacity:1,y:0,duration:0.36},'-=0.5')
+        .add(()=>{ burstParticles(); })
+        .to(logoImg,{scale:0.02,opacity:0,duration:0.45,delay:0.22,ease:'power4.in'})
+        .to(overlay,{opacity:0,duration:0.18,delay:0.05, onComplete:function(){
+          overlay.classList.remove('show');
+          gsap.set('.overlay-logo',{clearProps:'all'});
+          navigating = false;
+          if(isHash && href.startsWith('#')){
+            var target = document.querySelector(href);
+            if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
+          } else {
+            window.location.href = href;
+          }
+        }});
+    }
+
+    // Intercept links to show animation (preserve ctrl/cmd & _blank)
+    document.querySelectorAll('a').forEach(function(a){
+      var href = a.getAttribute('href');
+      if(!href) return;
+      if(href.indexOf('mailto:')===0 || href.indexOf('tel:')===0 || href.indexOf('javascript:')===0) return;
+      a.addEventListener('click', function(e){
+        if(e.ctrlKey || e.metaKey || a.target === '_blank') return;
+        e.preventDefault();
+        showOverlayAnimation(href, href.indexOf('#')===0);
+      })
+    });
+
+    // small idle pulse
+    gsap.to('#overlayLogoImg',{scale:1.02,duration:2,repeat:-1,yoyo:true,ease:'sine.inOut'});
+    </script>
+
+<script>
+function copyLink(e, url){e.preventDefault();navigator.clipboard && navigator.clipboard.writeText && navigator.clipboard.writeText(url).then(()=>alert('Link copied'))}
+gsap.to('#productCard', {y: -18, duration: 2, yoyo:true, repeat:-1, ease:'sine.inOut'});
+const track = document.getElementById('track'); let pos=0;
+function step(){ pos -= 0.3; if(track && Math.abs(pos) >= track.scrollWidth/2) pos = 0; if(track) track.style.transform = `translateX(${pos}px)`; requestAnimationFrame(step); }
+(function duplicate(){ if(track){ const children=Array.from(track.children); children.forEach(c=> track.appendChild(c.cloneNode(true))); } })();
+requestAnimationFrame(step);
+document.querySelectorAll('section').forEach((s,i)=> gsap.from(s, {opacity:0,y:30,duration:0.9,delay:0.05*i,scrollTrigger:{trigger:s, start:'top 85%'}}));
+const pc = document.getElementById('productCard'); if(pc){ pc.addEventListener('mousemove', (e)=>{ const r = pc.getBoundingClientRect(); const mx = (e.clientX - r.left) / r.width - 0.5; const my = (e.clientY - r.top) / r.height - 0.5; gsap.to('#productImg',{rotationY: mx*10, rotationX: -my*8, duration:0.4, transformPerspective:800, ease:'power2.out'}) }); pc.addEventListener('mouseleave', ()=> gsap.to('#productImg',{rotationY:0,rotationX:0,duration:0.6,ease:'power3.out'})); }
+</script>
+</body>
+</html>
