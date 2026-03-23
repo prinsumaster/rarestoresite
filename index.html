@@ -32,7 +32,7 @@ img{display:block}
 
 
 /* GIF TRANSITION */
-#gif-trans{position:fixed;inset:0;z-index:9998;background:#000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
+#gif-trans{position:fixed;inset:0;z-index:9998;background:#000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
 #gif-trans.on{opacity:1;pointer-events:all}
 #gif-trans img{width:180px;height:180px;object-fit:contain}
 
@@ -156,9 +156,9 @@ nav{position:sticky;top:0;z-index:500;background:#fff;border-bottom:1.5px solid 
 /* PRODUCT GRID */
 .pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .pcard{cursor:pointer;group:true}
-.pcard-img{position:relative;overflow:hidden;aspect-ratio:3/4;background:#f5f5f5;margin-bottom:14px;border-radius:2px}
+.pcard-img{position:relative;overflow:hidden;aspect-ratio:3/4;background:#f0f0f0;margin-bottom:12px;border-radius:4px}
 .pcard-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.pcard:hover .pcard-img img{transform:scale(1.06)}
+.pcard:hover .pcard-img img{transform:scale(1.08)}
 .pcard-badge{position:absolute;top:10px;left:10px;padding:4px 12px;font-size:9px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:#fff;border-radius:2px;z-index:2}
 .pcard-badge.Hot{background:#ff2d2d}
 .pcard-badge.New{background:#0a0a0a}
@@ -169,7 +169,8 @@ nav{position:sticky;top:0;z-index:500;background:#fff;border-bottom:1.5px solid 
 .pcard-wa{display:flex;align-items:center;gap:7px;background:#c8ff00;color:#0a0a0a;padding:12px 24px;border-radius:4px;font-size:10px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:background .2s;white-space:nowrap}
 .pcard-wa:hover{background:#d4ff1a}
 .pcard-wa svg{width:14px;height:14px;flex-shrink:0}
-.pcard-vid-btn{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.2);padding:9px 20px;border-radius:4px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;transition:background .2s}
+.pcard-vid-btn{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.18);padding:11px 28px;border-radius:5px;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif;transition:all .2s;width:80%;justify-content:center}
+.pcard-vid-btn:hover{background:rgba(255,255,255,.18);color:#fff}
 .pcard-vid-btn:hover{background:rgba(255,255,255,.18)}
 .pcard-brand{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#aaa;margin-bottom:5px}
 .pcard-name{font-size:13px;font-weight:600;color:#0a0a0a;margin-bottom:8px;line-height:1.35}
@@ -196,9 +197,9 @@ nav{position:sticky;top:0;z-index:500;background:#fff;border-bottom:1.5px solid 
 .filter-row{border-bottom:1.5px solid #0a0a0a;background:#fff;position:sticky;top:62px;z-index:100}
 .filter-in{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;gap:6px;overflow-x:auto;padding-top:14px;padding-bottom:14px;scrollbar-width:none}
 .filter-in::-webkit-scrollbar{display:none}
-.fbtn{flex-shrink:0;padding:9px 20px;border:1.5px solid #e0e0e0;background:#fff;color:#888;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .15s;white-space:nowrap;font-family:'Inter',sans-serif}
+.fbtn{flex-shrink:0;padding:9px 20px;border:1.5px solid #ebebeb;background:#fff;color:#999;font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;border-radius:20px;transition:all .2s;white-space:nowrap;font-family:'Inter',sans-serif}
 .fbtn:hover{border-color:#0a0a0a;color:#0a0a0a}
-.fbtn.on{background:#0a0a0a;color:#fff;border-color:#0a0a0a}
+.fbtn.on{background:#0a0a0a;color:#c8ff00;border-color:#0a0a0a}
 .cat-grid-wrap{max-width:1400px;margin:0 auto;padding:36px 24px 72px}
 .cat-pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 
@@ -215,11 +216,13 @@ nav{position:sticky;top:0;z-index:500;background:#fff;border-bottom:1.5px solid 
 .det-div{border:none;border-top:1.5px solid #f0f0f0;margin:24px 0}
 .sz-lbl{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:12px}
 .sz-wrap{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.sz-btn{padding:10px 16px;border:1.5px solid #e0e0e0;background:#fff;font-size:12px;font-weight:600;cursor:pointer;border-radius:4px;transition:all .15s;font-family:'Inter',sans-serif;min-width:48px;text-align:center}
+.sz-btn{padding:11px 16px;border:1.5px solid #e8e8e8;background:#fff;font-size:12px;font-weight:600;cursor:pointer;border-radius:6px;transition:all .2s;font-family:'Inter',sans-serif;min-width:52px;text-align:center}
+.sz-btn:hover{border-color:#0a0a0a;background:#fafafa}
 .sz-btn:hover{border-color:#0a0a0a}
-.sz-btn.on{background:#0a0a0a;color:#fff;border-color:#0a0a0a}
-.wa-full{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:17px;background:#0a0a0a;color:#fff;border:none;border-radius:5px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .2s;margin-bottom:10px;font-family:'Inter',sans-serif}
-.wa-full:hover{background:#222;transform:translateY(-1px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.sz-btn.on{background:#0a0a0a;color:#c8ff00;border-color:#0a0a0a;transform:scale(1.05)}
+.wa-full{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:18px;background:#0a0a0a;color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:all .25s;margin-bottom:10px;font-family:'Inter',sans-serif;box-shadow:0 4px 16px rgba(0,0,0,.15)}
+.wa-full:hover{background:#111;transform:translateY(-2px);box-shadow:0 12px 32px rgba(0,0,0,.2)}
+.wa-full:active{transform:translateY(0)}
 .wa-full svg{width:20px;height:20px}
 .det-feats{margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .det-feat{display:flex;align-items:center;gap:8px;font-size:11px;color:#888;padding:10px;background:#f9f9f9;border-radius:4px}
@@ -258,15 +261,15 @@ nav{position:sticky;top:0;z-index:500;background:#fff;border-bottom:1.5px solid 
 /* ─── VIDEO MODAL ─── */
 .vmod{position:fixed;inset:0;z-index:8000;background:rgba(0,0,0,.8);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s}
 .vmod.on{opacity:1;pointer-events:all}
-.vmod-box{background:#fff;border-radius:8px;padding:28px;max-width:520px;width:94%;position:relative;border:1.5px solid #0a0a0a}
-.vmod-x{position:absolute;top:12px;right:12px;background:#0a0a0a;border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
-.vmod-ttl{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;margin-bottom:4px}
-.vmod-sub{font-size:11px;color:#aaa;letter-spacing:.5px;margin-bottom:18px}
-.vmod-frame{width:100%;aspect-ratio:16/9;border-radius:4px;border:none;background:#0a0a0a;display:none;margin-bottom:14px}
-.vmod-inp{width:100%;padding:12px 14px;border:1.5px solid #e0e0e0;border-radius:5px;font-size:13px;outline:none;margin-bottom:12px;font-family:'Inter',sans-serif;box-sizing:border-box;transition:border-color .2s}
-.vmod-inp:focus{border-color:#0a0a0a}
-.vmod-btns{display:flex;gap:10px}
-.vmod-play{flex:1;padding:13px;background:#0a0a0a;color:#fff;border:none;border-radius:5px;font-size:11px;font-weight:800;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:'Inter',sans-serif}
+.vmod-box{background:#0a0a0a;border-radius:12px;padding:20px;max-width:420px;width:94%;position:relative}
+.vmod-x{position:absolute;top:12px;right:12px;background:rgba(255,255,255,.15);border:none;color:#fff;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.vmod-ttl{font-family:'Bebas Neue',sans-serif;font-size:18px;letter-spacing:1px;margin-bottom:12px;color:#fff}
+
+.vmod-frame{width:100%;height:70vh;max-height:560px;border-radius:8px;border:none;background:#000;display:block;margin-bottom:16px}
+
+
+
+
 .vmod-cancel{flex:1;padding:13px;background:#f5f5f5;color:#666;border:none;border-radius:5px;font-size:11px;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif}
 
 /* ─── TICKER ─── */
@@ -623,13 +626,12 @@ footer{background:#0a0a0a;color:#fff;padding:64px 24px 28px}
   <div class="vmod-box">
     <button class="vmod-x" onclick="closeVid()">✕</button>
     <div class="vmod-ttl" id="vmod-ttl">Product Video</div>
-    <div class="vmod-sub">Paste a YouTube link to watch</div>
-    <iframe id="vmod-frame" class="vmod-frame" src="" allowfullscreen></iframe>
-    <input id="vmod-inp" class="vmod-inp" type="text" placeholder="https://youtube.com/watch?v=...">
-    <div class="vmod-btns">
-      <button class="vmod-play" onclick="playVid()">▶ Play</button>
-      <button class="vmod-cancel" onclick="closeVid()">Close</button>
+    <iframe id="vmod-frame" class="vmod-frame" src="" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <div id="vmod-no-video" style="display:none;height:200px;align-items:center;justify-content:center;flex-direction:column;gap:12px;color:rgba(255,255,255,.4)">
+      <span style="font-size:40px">&#127916;</span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase">Video coming soon</span>
     </div>
+    <button class="vmod-cancel" onclick="closeVid()">Close</button>
   </div>
 </div>
 
@@ -706,7 +708,7 @@ var CATS={
     vid:'ebaHSeiUmTU',
     includes:['Socks','Carry Bag','Bill Receipt','Calendar'],
     sz:['41','42','43','44','45'],badge:'Hot'},
-    {id:'rs1',fixedPrice:true,n:'Adidas Yeezy Boost 350 V2 Carbon Beluga (Semi UA)',br:'Adidas',cat:'Shoes',cost:2450,margin:0,imgs:['https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.17_jmyeqx.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.18_cdvh5r.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.15_fbz2vp.jpg'],img:'https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg',video:'ebaHSeiUmTU',sz:['41','42','43','44','45'],badge:'Hot',includes:'Socks + Carry Bag + Bill Receipt + Calendar'},
+    {id:'rs1',fixedPrice:true,n:'Adidas Yeezy Boost 350 V2 Carbon Beluga (Semi UA)',br:'Adidas',cat:'Shoes',cost:2450,margin:0,video:'ebaHSeiUmTU',imgs:['https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.17_jmyeqx.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.18_cdvh5r.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.15_fbz2vp.jpg'],img:'https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg',video:'ebaHSeiUmTU',sz:['41','42','43','44','45'],badge:'Hot',includes:'Socks + Carry Bag + Bill Receipt + Calendar'},
     {id:'m1',n:'On Cloud Tilt 2.0 Ivory Black',br:'On Running',cat:'Shoes',cost:2501,
       img:SB+'698b0c203f6063.jpeg',
       imgs:[
@@ -717,7 +719,7 @@ var CATS={
       ],
       video:'https://www.youtube.com/embed/dQw4w9WgXcQ',
       sz:['42','43','44','45'],badge:'Hot'},
-    {id:'m2',n:'Adidas Samba Black',br:'Adidas',cat:'Shoes',cost:1501,img:SB+'68b2ce6bc15480.jpeg',sz:['41','42','44','45']},
+    {id:'m2',n:'Adidas Samba Black',br:'Adidas',cat:'Shoes',cost:2000,fixedPrice:true,video:'qk9ezfw6ixE',imgs:['https://cdn.cartpe.in/images/gallery_md/68b2ce6bc15480.jpeg','https://cdn.cartpe.in/images/gallery_md/68b2ce6bc1f6c3.jpeg','https://cdn.cartpe.in/images/gallery_md/68b2ce6bc1d9a2.jpeg','https://cdn.cartpe.in/images/gallery_md/68b2ce6bc17441.jpeg'],img:'https://cdn.cartpe.in/images/gallery_md/68b2ce6bc15480.jpeg',sz:['41','42','44','45'],badge:'New'},
     {id:'m3',n:'Adidas Samba White',br:'Adidas',cat:'Shoes',cost:1501,img:SB+'685730932020c.jpeg',sz:['43','44','45']},
     {id:'m4',n:'Air Force 1 Leather UA',br:'Nike',cat:'Shoes',cost:1501,img:SB+'680f7afc33fac.jpeg',sz:['41','42','44','45','46','47'],badge:'New'},
     {id:'m5',n:'Asics Gel Kensie Max Blue Orange',br:'Asics',cat:'Shoes',cost:3001,img:SB+'69a716db619854.jpeg',sz:['41','42','43','44'],badge:'Premium'},
@@ -820,7 +822,10 @@ document.getElementById('lk-inp').focus();
 function openMob(){document.getElementById('mob-ov').classList.add('on');document.getElementById('mob-panel').classList.add('on');}
 function closeMob(){document.getElementById('mob-ov').classList.remove('on');document.getElementById('mob-panel').classList.remove('on');}
 
-function go(dest){
+function go(dest, skipHistory){
+  if(!skipHistory){
+    history.pushState({page:dest}, '', dest==='home'?'/':'#'+dest);
+  }
   var ov=document.getElementById('gif-trans');
   ov.classList.add('on');
   setTimeout(function(){
@@ -832,7 +837,25 @@ function go(dest){
     setTimeout(function(){ov.classList.remove('on');},500);
   },1200);
 }
-function goBack(){go(lastPage);}
+
+// Handle browser back/forward button
+window.addEventListener('popstate', function(e){
+  if(e.state && e.state.page === 'product' && e.state.pid){
+    showProd(e.state.pid, true);
+  } else {
+    var dest = (e.state && e.state.page) ? e.state.page : 'home';
+    go(dest, true);
+  }
+});
+
+// Push initial state so first back press goes to home not Chrome
+window.addEventListener('load', function(){
+  history.replaceState({page:'home'}, '', '/');
+});
+function goBack(){
+  if(window.history.length > 1){ history.back(); }
+  else{ go(lastPage); }
+}
 
 // CATEGORIES
 function loadCat(cat){
@@ -917,9 +940,12 @@ function makeCard(p){
 
 // DETAIL
 var galImgs=[], galIdx=0;
-function showProd(id){
+function showProd(id, skipHistory){
   var p=allP().find(function(x){return x.id===id;});
   if(!p)return;
+  if(!skipHistory){
+    history.pushState({page:'product', pid:id}, '', '#product-'+id);
+  }
   var ov=document.getElementById('gif-trans');
   ov.classList.add('on');
   setTimeout(function(){
@@ -951,7 +977,7 @@ function showProd(id){
     // video
     var vw=document.getElementById('vidWrap');
     var ve=document.getElementById('vidEmbed');
-    if(p.video){ve.src='https://www.youtube.com/embed/'+p.video+'?rel=0&modestbranding=1';vw.style.display='block';}
+    if(p.video){ve.src='https://www.youtube.com/embed/'+p.video+'?rel=0&modestbranding=1&playsinline=1';ve.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');vw.style.display='block';}
     else{if(ve)ve.src='';if(vw)vw.style.display='none';}
     // sizes
     var sw=document.getElementById('szWrap');
@@ -985,18 +1011,30 @@ function setWA(name,sz){
 
 // VIDEO
 function openVid(id,name){
+  var p=allP().find(function(x){return x.id===id;});
+  var videoId = p && p.video ? p.video : null;
+  if(!videoId){
+    // No video for this product
+    document.getElementById('vmod-ttl').textContent = name;
+    document.getElementById('vmod-frame').src = '';
+    document.getElementById('vmod-no-video').style.display='flex';
+    document.getElementById('vmod-frame').style.display='none';
+    document.getElementById('vmod').classList.add('on');
+    return;
+  }
+  document.getElementById('vmod-no-video').style.display='none';
+  document.getElementById('vmod-frame').style.display='block';
   document.getElementById('vmod-ttl').textContent=name;
-  document.getElementById('vmod-inp').value='';
-  document.getElementById('vmod-frame').src='';
-  document.getElementById('vmod-frame').style.display='none';
+  var frame=document.getElementById('vmod-frame');
+  frame.src='';
+  setTimeout(function(){
+    frame.src='https://www.youtube.com/embed/'+videoId+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+  },150);
   document.getElementById('vmod').classList.add('on');
 }
-function closeVid(){document.getElementById('vmod').classList.remove('on');document.getElementById('vmod-frame').src='';}
-function playVid(){
-  var url=document.getElementById('vmod-inp').value;
-  var m=url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([^&\s]+)/);
-  if(m){document.getElementById('vmod-frame').src='https://www.youtube.com/embed/'+m[1]+'?autoplay=1';document.getElementById('vmod-frame').style.display='block';}
-  else if(url)window.open(url,'_blank');
+function closeVid(){
+  document.getElementById('vmod').classList.remove('on');
+  document.getElementById('vmod-frame').src='';
 }
 document.getElementById('vmod').addEventListener('click',function(e){if(e.target===this)closeVid();});
 </script>
