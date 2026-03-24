@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--black:#0a0a0a;--white:#fafafa;--accent:#c8ff00;--red:#ff2d2d;--gray:#888}
+:root{--black:#0a0a0a;--white:#fafafa;--accent:#c8ff00;--red:#b80b0b;--gray:#888}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden}
 a{text-decoration:none;color:inherit}
@@ -411,6 +411,7 @@ footer{background:#0a0a0a;color:#fff;padding:64px 24px 28px}
       <div class="hero-actions">
         <button class="btn-accent" onclick="go('new')">Shop New In</button>
         <button class="btn-ghost" onclick="go('men')">Browse Men →</button>
+        <button class="btn-ghost" onclick="go('women')">Browse WoMen →</button>
       </div>
     </div>
     <div class="hero-stats">
@@ -702,22 +703,18 @@ PRODUCT FORMAT:
 */
 var CATS={
   men:{label:'Men',filters:['All','Shoes','Jeans','Shirts','Trackpants','Watches','Goggles','Flip Flops','Traditional'],items:[
-    {id:'y1',n:'Adidas Yeezy Boost 350 V2 Carbon Beluga (Semi UA)',br:'Adidas Yeezy',cat:'Shoes',price:2450,
-    imgs:['https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.17_jmyeqx.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.18_cdvh5r.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.15_fbz2vp.jpg'],
-    img:'https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg',
-    vid:'ebaHSeiUmTU',
-    includes:['Socks','Carry Bag','Bill Receipt','Calendar'],
-    sz:['41','42','43','44','45'],badge:'Hot'},
-    {id:'rs1',fixedPrice:true,n:'Adidas Yeezy Boost 350 V2 Carbon Beluga (Semi UA)',br:'Adidas',cat:'Shoes',cost:2450,margin:0,video:'ebaHSeiUmTU',imgs:['https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.17_jmyeqx.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.18_cdvh5r.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.15_fbz2vp.jpg'],img:'https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg',video:'ebaHSeiUmTU',sz:['41','42','43','44','45'],badge:'Hot',includes:'Socks + Carry Bag + Bill Receipt + Calendar'},
+    {id:'rs1',fixedPrice:true,n:'Adidas Yeezy Boost 350 V2 Carbon Beluga (Semi UA)',br:'Adidas',cat:'Shoes',cost:2050,margin:0,video:'ebaHSeiUmTU',imgs:['https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.17_jmyeqx.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.18_cdvh5r.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.15_fbz2vp.jpg'],img:'https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg',video:'ebaHSeiUmTU',sz:['41','42','43','44','45'],badge:'Hot',includes:'Socks + Carry Bag + Bill Receipt + Calendar'},
     {id:'m1',n:'On Cloud Tilt 2.0 Ivory Black',br:'On Running',cat:'Shoes',cost:2501,
       img:SB+'698b0c203f6063.jpeg',
       imgs:[
         SB+'698b0c203f6063.jpeg',
-        'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80',
-        'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=600&q=80',
-        'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=600&q=80',
+        'https://cdn.cartpe.in/images/gallery_md/698b0c20407235.jpeg',
+        'https://cdn.cartpe.in/images/gallery_md/698b0c203ff4f4.jpeg',
+        'https://cdn.cartpe.in/images/gallery_md/698b0c203e85d2.jpeg',
+        'https://cdn.cartpe.in/images/gallery_md/698b0c203e0fb1.jpeg',
+        'https://cdn.cartpe.in/images/gallery_md/698b0c203d8090.jpeg',
       ],
-      video:'https://www.youtube.com/embed/dQw4w9WgXcQ',
+      video:'https://youtube.com/shorts/YyhTJZ2bC6Y',
       sz:['42','43','44','45'],badge:'Hot'},
     {id:'m2',n:'Adidas Samba Black',br:'Adidas',cat:'Shoes',cost:2000,fixedPrice:true,video:'qk9ezfw6ixE',imgs:['https://cdn.cartpe.in/images/gallery_md/68b2ce6bc15480.jpeg','https://cdn.cartpe.in/images/gallery_md/68b2ce6bc1f6c3.jpeg','https://cdn.cartpe.in/images/gallery_md/68b2ce6bc1d9a2.jpeg','https://cdn.cartpe.in/images/gallery_md/68b2ce6bc17441.jpeg'],img:'https://cdn.cartpe.in/images/gallery_md/68b2ce6bc15480.jpeg',sz:['41','42','44','45'],badge:'New'},
     {id:'m3',n:'Adidas Samba White',br:'Adidas',cat:'Shoes',cost:1501,img:SB+'685730932020c.jpeg',sz:['43','44','45']},
