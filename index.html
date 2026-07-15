@@ -701,89 +701,9 @@ PRODUCT FORMAT:
 }
 ════════════════════════════════════════════════
 */
-var CATS={
-  men:{label:'Men',filters:['All','Shoes','Jeans','Shirts','Trackpants','Watches','Goggles','Flip Flops','Traditional'],items:[
-    {id:'rs1',fixedPrice:true,n:'Adidas Yeezy Boost 350 V2 Carbon Beluga (Semi UA)',br:'Adidas',cat:'Shoes',cost:2050,margin:0,video:'ebaHSeiUmTU',imgs:['https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.17_jmyeqx.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.18_cdvh5r.jpg','https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.15_fbz2vp.jpg'],img:'https://res.cloudinary.com/dutqxtsrr/image/upload/v1774014087/WhatsApp_Image_2026-03-20_at_14.07.16_cttwdy.jpg',video:'ebaHSeiUmTU',sz:['41','42','43','44','45'],badge:'Hot',includes:'Socks + Carry Bag + Bill Receipt + Calendar'},
-    {id:'m1',n:'On Cloud Tilt 2.0 Ivory Black',br:'On Running',cat:'Shoes',cost:2501,
-      img:SB+'698b0c203f6063.jpeg',
-      imgs:[
-        SB+'698b0c203f6063.jpeg',
-        'https://cdn.cartpe.in/images/gallery_md/698b0c20407235.jpeg',
-        'https://cdn.cartpe.in/images/gallery_md/698b0c203ff4f4.jpeg',
-        'https://cdn.cartpe.in/images/gallery_md/698b0c203e85d2.jpeg',
-        'https://cdn.cartpe.in/images/gallery_md/698b0c203e0fb1.jpeg',
-        'https://cdn.cartpe.in/images/gallery_md/698b0c203d8090.jpeg',
-      ],
-      video:'https://youtube.com/shorts/YyhTJZ2bC6Y',
-      sz:['42','43','44','45'],badge:'Hot'},
-    {id:'m2',n:'Adidas Samba Black',br:'Adidas',cat:'Shoes',cost:2000,fixedPrice:true,video:'qk9ezfw6ixE',imgs:['https://cdn.cartpe.in/images/gallery_md/68b2ce6bc15480.jpeg','https://cdn.cartpe.in/images/gallery_md/68b2ce6bc1f6c3.jpeg','https://cdn.cartpe.in/images/gallery_md/68b2ce6bc1d9a2.jpeg','https://cdn.cartpe.in/images/gallery_md/68b2ce6bc17441.jpeg'],img:'https://cdn.cartpe.in/images/gallery_md/68b2ce6bc15480.jpeg',sz:['41','42','44','45'],badge:'New'},
-    {id:'m3',n:'Adidas Samba White',br:'Adidas',cat:'Shoes',cost:1501,img:SB+'685730932020c.jpeg',sz:['43','44','45']},
-    {id:'m4',n:'Air Force 1 Leather UA',br:'Nike',cat:'Shoes',cost:1501,img:SB+'680f7afc33fac.jpeg',sz:['41','42','44','45','46','47'],badge:'New'},
-    {id:'m5',n:'Asics Gel Kensie Max Blue Orange',br:'Asics',cat:'Shoes',cost:3001,img:SB+'69a716db619854.jpeg',sz:['41','42','43','44'],badge:'Premium'},
-    {id:'m6',n:'Asics SuperBlast 2 Black',br:'Asics',cat:'Shoes',cost:2701,img:SB+'69a7162c447400.jpeg',sz:['41','42','43','44','45']},
-    {id:'m7',n:'New Balance 9060 Sea Salt',br:'New Balance',cat:'Shoes',cost:2601,img:SB+'69a70bc8d1a0a4.jpeg',sz:['42','44']},
-    {id:'m8',n:'Nike Dunk Low Year Of Dragon',br:'Nike',cat:'Shoes',cost:2201,img:SB+'69a708e48d3290.jpeg',sz:['41','42','43','44','45']},
-    {id:'m9',n:'Nike SB Dunk Low Cacao Wow',br:'Nike',cat:'Shoes',cost:1901,img:SB+'69a707a0616ec1.jpeg',sz:['41','42','43','45']},
-    {id:'m10',n:'Puma Speed Cat OG Black',br:'Puma',cat:'Shoes',cost:2201,img:SB+'69a6fe6216bf10.jpeg',sz:['41','43','44','45']},
-    {id:'m11',n:'Timberland Suede Boots Wheat',br:'Timberland',cat:'Shoes',cost:2601,img:SB+'69a6fd68c391a0.jpeg',sz:['42','45'],badge:'Exclusive'},
-    {id:'m12',n:'Adidas Yeezy Slide Onyx UA',br:'Adidas Yeezy',cat:'Flip Flops',cost:1301,img:SB+'69b535dc2882a0.jpeg',sz:['UK7.5/EU41','UK8/EU42','UK9/EU43','UK9.5/EU44'],badge:'Hot'},
-    {id:'m13',n:'Adidas Yeezy Slide Bone UA',br:'Adidas Yeezy',cat:'Flip Flops',cost:1301,img:SB+'69b53501f10750.jpeg',sz:['UK7.5/EU41','UK8/EU42','UK9/EU43']},
-    {id:'m14',n:'Adidas Yeezy Slide Pure UA',br:'Adidas Yeezy',cat:'Flip Flops',cost:1301,img:SB+'69b532c40d8c50.jpeg',sz:['UK7.5/EU41','UK8/EU42','UK9/EU43'],badge:'New'},
-    {id:'m15',n:'Nike ReactX Rejuven8 White',br:'Nike',cat:'Flip Flops',cost:801,img:SB+'6861295bb4cdb.jpeg',sz:['UK6/EU40','UK7/EU41','UK7.5/EU42','UK8.5/EU43']},
-    {id:'m16',n:'Under Armour Black Slide',br:'Under Armour',cat:'Flip Flops',cost:501,img:SB+'68289ed110531.jpeg',sz:['UK6/EU40','UK10/EU45']},
-    {id:'m17',n:'Slim Fit Dark Wash Denim',br:'RareStore',cat:'Jeans',cost:1299,img:UB+'photo-1542272604-787c3835535d?w=600&q=80',sz:['28','30','32','34','36']},
-    {id:'m18',n:'Distressed Ripped Jeans',br:'RareStore',cat:'Jeans',cost:1599,img:UB+'photo-1475178626620-a4d074967452?w=600&q=80',sz:['28','30','32','34'],badge:'New'},
-    {id:'m19',n:'Relaxed Fit Cargo Jeans',br:'RareStore',cat:'Jeans',cost:1799,img:UB+'photo-1473966968600-fa801b869a1a?w=600&q=80',sz:['30','32','34','36']},
-    {id:'m20',n:'Premium Polo Shirt White',br:'RareStore',cat:'Shirts',cost:899,img:UB+'photo-1625910513417-e44b46d2ce5d?w=600&q=80',sz:['S','M','L','XL','XXL'],badge:'New'},
-    {id:'m21',n:'Oversized Graphic Tee',br:'RareStore',cat:'Shirts',cost:799,img:UB+'photo-1521572163474-6864f9cf17ab?w=600&q=80',sz:['S','M','L','XL']},
-    {id:'m22',n:'Linen Casual Shirt Navy',br:'RareStore',cat:'Shirts',cost:1099,img:UB+'photo-1596755389378-c31d21fd1273?w=600&q=80',sz:['S','M','L','XL']},
-    {id:'m23',n:'Slim Track Pants Black',br:'RareStore',cat:'Trackpants',cost:999,img:UB+'photo-1591195853828-11db59a44f43?w=600&q=80',sz:['S','M','L','XL']},
-    {id:'m24',n:'Jogger Pants Grey',br:'RareStore',cat:'Trackpants',cost:1199,img:UB+'photo-1519238263530-99bdd11df2ea?w=600&q=80',sz:['S','M','L','XL'],badge:'New'},
-    {id:'m25',n:'Minimalist Watch Black',br:'RareStore',cat:'Watches',cost:2999,img:UB+'photo-1523275335684-37898b6baf30?w=600&q=80',sz:['One Size'],badge:'Exclusive'},
-    {id:'m26',n:'Chronograph Steel Watch',br:'RareStore',cat:'Watches',cost:3999,img:UB+'photo-1524592094714-0f0654e359b1?w=600&q=80',sz:['One Size']},
-    {id:'m27',n:'Premium Aviator Sunglasses',br:'RareStore',cat:'Goggles',cost:999,img:UB+'photo-1572635196237-14b3f281503f?w=600&q=80',sz:['One Size']},
-    {id:'m28',n:'Wraparound Sport Goggles',br:'RareStore',cat:'Goggles',cost:1299,img:UB+'photo-1508296695146-257a814070b4?w=600&q=80',sz:['One Size'],badge:'New'},
-    {id:'m29',n:'Premium Kurta White',br:'RareStore',cat:'Traditional',cost:1499,img:UB+'photo-1583391733956-62e31e2e422f?w=600&q=80',sz:['S','M','L','XL']},
-    {id:'m30',n:'Sherwani Jacket Black',br:'RareStore',cat:'Traditional',cost:3999,img:UB+'photo-1594938298603-c8148c4b4fb6?w=600&q=80',sz:['S','M','L','XL'],badge:'Exclusive'}
-  ]},
-  women:{label:'Women',filters:['All','Shoes','Jeans','Shirts','Trackpants','Watches','Goggles','Flip Flops','Traditional'],items:[
-    {id:'w1',n:'Air Force 1 Leather UA Womens',br:'Nike',cat:'Shoes',cost:1501,img:SB+'680f7b402de2d.jpeg',sz:['36','37','38','39','40'],badge:'New'},
-    {id:'w2',n:'Nike Air Jordan 5 Soft Pink',br:'Nike',cat:'Shoes',cost:2601,img:SB+'69a712457a23d3.jpeg',sz:['38','39','40'],badge:'Hot'},
-    {id:'w3',n:'Nike Air Force 1 Valentines Day',br:'Nike',cat:'Shoes',cost:2501,img:SB+'698b09323c5e62.jpeg',sz:['38','39']},
-    {id:'w4',n:'Adidas Samba White Green',br:'Adidas',cat:'Shoes',cost:1501,img:SB+'6977266c1eac9.jpeg',sz:['38','39','40']},
-    {id:'w5',n:'Nike SB Dunk Low Rose Whisper',br:'Nike',cat:'Shoes',cost:2201,img:SB+'695fa6cadaff1.jpeg',sz:['37','38','40'],badge:'New'},
-    {id:'w6',n:'New Balance 204L Pastel Pink',br:'New Balance',cat:'Shoes',cost:2801,img:SB+'693c135c6f500.jpeg',sz:['38','39'],badge:'Premium'},
-    {id:'w7',n:'Nike Air Jordan 1 Washed Pink',br:'Nike',cat:'Shoes',cost:2301,img:SB+'692d7a6389e4c.jpeg',sz:['37','38']},
-    {id:'w8',n:'Onitsuka Tiger Mexico 66 Pink',br:'Onitsuka Tiger',cat:'Shoes',cost:1801,img:SB+'692b21d004131.jpeg',sz:['38']},
-    {id:'w9',n:'Adidas Samba OG Maroon',br:'Adidas',cat:'Shoes',cost:1801,img:SB+'6918a4f1d06e9.jpeg',sz:['38','39','40']},
-    {id:'w10',n:'Adidas Yeezy Slide Azure UA',br:'Adidas Yeezy',cat:'Flip Flops',cost:1301,img:SB+'69b5337f102a50.jpeg',sz:['UK5/EU38','UK6/EU39','UK7/EU40']},
-    {id:'w11',n:'Crocs Mellow Flip Flop',br:'Crocs',cat:'Flip Flops',cost:851,img:SB+'68611f7488def.jpeg',sz:['UK4','UK5','UK6']},
-    {id:'w12',n:'High Waist Skinny Jeans',br:'RareStore',cat:'Jeans',cost:1399,img:UB+'photo-1541099649105-f69ad21f3246?w=600&q=80',sz:['26','28','30','32'],badge:'New'},
-    {id:'w13',n:'Mom Fit Vintage Jeans',br:'RareStore',cat:'Jeans',cost:1599,img:UB+'photo-1475178626620-a4d074967452?w=600&q=80',sz:['26','28','30']},
-    {id:'w14',n:'Crop Top White',br:'RareStore',cat:'Shirts',cost:699,img:UB+'photo-1533399510975-a36a31e0a9d9?w=600&q=80',sz:['XS','S','M','L'],badge:'New'},
-    {id:'w15',n:'Oversized Shirt Dress',br:'RareStore',cat:'Shirts',cost:1299,img:UB+'photo-1594938298603-c8148c4b4fb6?w=600&q=80',sz:['XS','S','M','L']},
-    {id:'w16',n:'Silk Track Set',br:'RareStore',cat:'Trackpants',cost:2799,img:UB+'photo-1515886657613-9f3515b0c78f?w=600&q=80',sz:['XS','S','M','L']},
-    {id:'w17',n:'Jogger Pants Pink',br:'RareStore',cat:'Trackpants',cost:1199,img:UB+'photo-1506629082955-511b1aa562c8?w=600&q=80',sz:['S','M','L'],badge:'New'},
-    {id:'w18',n:'Rose Gold Ladies Watch',br:'RareStore',cat:'Watches',cost:2999,img:UB+'photo-1547996160-81dfa63595aa?w=600&q=80',sz:['One Size'],badge:'Exclusive'},
-    {id:'w19',n:'Cat Eye Sunglasses',br:'RareStore',cat:'Goggles',cost:899,img:UB+'photo-1587486913049-53fc88980cfc?w=600&q=80',sz:['One Size'],badge:'New'},
-    {id:'w20',n:'Anarkali Suit Pink',br:'RareStore',cat:'Traditional',cost:2999,img:UB+'photo-1610030469983-98e550d6193c?w=600&q=80',sz:['XS','S','M','L'],badge:'Exclusive'},
-    {id:'w21',n:'Lehenga Set Gold',br:'RareStore',cat:'Traditional',cost:4999,img:UB+'photo-1583391733956-62e31e2e422f?w=600&q=80',sz:['XS','S','M','L']}
-  ]},
-  kids:{label:'Kids',filters:['All','Shoes','Jeans','Shirts','Trackpants','Watches','Goggles','Flip Flops','Traditional'],items:[
-    {id:'k1',n:'Junior Nike Air Force 1',br:'Nike',cat:'Shoes',cost:1299,img:SB+'680f7b402de2d.jpeg',sz:['UK1','UK2','UK3','UK4'],badge:'New'},
-    {id:'k2',n:'Kids Adidas Samba',br:'Adidas',cat:'Shoes',cost:1101,img:SB+'68b2ce6bc15480.jpeg',sz:['UK1','UK2','UK3','UK4']},
-    {id:'k3',n:'Junior Asics Gel Runner',br:'Asics',cat:'Shoes',cost:1501,img:SB+'69a7162c447400.jpeg',sz:['UK2','UK3','UK4','UK5'],badge:'Hot'},
-    {id:'k4',n:'Kids Yeezy Slide',br:'Adidas Yeezy',cat:'Flip Flops',cost:901,img:SB+'69b535dc2882a0.jpeg',sz:['EU36','EU37','EU38']},
-    {id:'k5',n:'Kids Slim Denim',br:'RareStore',cat:'Jeans',cost:799,img:UB+'photo-1471286174890-9c112ac6476d?w=600&q=80',sz:['3-4Y','5-6Y','7-8Y','9-10Y']},
-    {id:'k6',n:'Kids Cargo Pants',br:'RareStore',cat:'Jeans',cost:899,img:UB+'photo-1473966968600-fa801b869a1a?w=600&q=80',sz:['3-4Y','5-6Y','7-8Y'],badge:'New'},
-    {id:'k7',n:'Kids Polo Shirt',br:'RareStore',cat:'Shirts',cost:499,img:UB+'photo-1503944583220-f16a1f0b74db?w=600&q=80',sz:['3-4Y','5-6Y','7-8Y','9-10Y'],badge:'New'},
-    {id:'k8',n:'Kids Graphic Tee',br:'RareStore',cat:'Shirts',cost:399,img:UB+'photo-1519238263530-99bdd11df2ea?w=600&q=80',sz:['3-4Y','5-6Y','7-8Y','9-10Y']},
-    {id:'k9',n:'Kids Jogger Pants',br:'RareStore',cat:'Trackpants',cost:599,img:UB+'photo-1519457431-44ccd64a579b?w=600&q=80',sz:['3-4Y','5-6Y','7-8Y','9-10Y']},
-    {id:'k10',n:'Kids Digital Watch',br:'RareStore',cat:'Watches',cost:799,img:UB+'photo-1508685096489-7aacd43bd3b1?w=600&q=80',sz:['One Size'],badge:'New'},
-    {id:'k11',n:'Kids UV Sunglasses',br:'RareStore',cat:'Goggles',cost:499,img:UB+'photo-1511285560929-80b456fea0bc?w=600&q=80',sz:['One Size']},
-    {id:'k12',n:'Kids Kurta Set',br:'RareStore',cat:'Traditional',cost:999,img:UB+'photo-1583391733956-62e31e2e422f?w=600&q=80',sz:['3-4Y','5-6Y','7-8Y','9-10Y']}
-  ]}
-};
+</script>
+<script src="data.js"></script>
+<script>
 
 function allP(){var r=[];['men','women','kids'].forEach(function(k){r=r.concat(CATS[k].items);});return r;}
 function rupee(c){return '₹'+(c+M).toLocaleString('en-IN');}
