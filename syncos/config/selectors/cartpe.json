@@ -9,5 +9,9 @@
   "allSizes": ".size_click",
   "sizeUI": ".sze_div",
   "images": "#slider .slides img",
-  "video": "iframe[src*='youtube']"
+  "fallbackImages": ".flexslider .slides img, .product-gallery img",
+  "excludeImages": ".single-related-product",
+  "video": "iframe[src*='youtube']",
+  "videos": "#view_video video source, #view_video video",
+  "addToCartBtn": ".btn-cart, .add-to-cart"
 }

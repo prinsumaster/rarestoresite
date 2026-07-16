@@ -45,9 +45,9 @@ module.exports = {
         if (el.src && el.src.startsWith('http')) imgSet.add(el.src);
       });
       // Fallback
-      if (imgSet.size === 0) {
-        document.querySelectorAll('.flexslider .slides img, .product-gallery img').forEach(el => {
-          if (!el.closest('.single-related-product') && !el.closest('header')) {
+      if (imgSet.size === 0 && sel.fallbackImages) {
+        document.querySelectorAll(sel.fallbackImages).forEach(el => {
+          if (!el.closest(sel.excludeImages) && !el.closest('header')) {
             if (el.src && el.src.startsWith('http')) imgSet.add(el.src);
           }
         });
@@ -56,10 +56,12 @@ module.exports = {
       
       // Videos (DOM)
       const vids = new Set();
-      document.querySelectorAll('#view_video video source, #view_video video').forEach(el => {
-        const src = el.src || el.getAttribute('data-video-src');
-        if (src && src.startsWith('http')) vids.add(src);
-      });
+      if (sel.videos) {
+        document.querySelectorAll(sel.videos).forEach(el => {
+          const src = el.src || el.getAttribute('data-video-src');
+          if (src && src.startsWith('http')) vids.add(src);
+        });
+      }
 
       // Name
       let name = '';
@@ -97,8 +99,10 @@ module.exports = {
 
       // Stock
       let inStock = true;
-      const btn = document.querySelector('.btn-cart, .add-to-cart');
-      if (btn && btn.innerText.toLowerCase().includes('out of stock')) inStock = false;
+      if (sel.addToCartBtn) {
+        const btn = document.querySelector(sel.addToCartBtn);
+        if (btn && btn.innerText.toLowerCase().includes('out of stock')) inStock = false;
+      }
       if (price === 0) inStock = false;
 
       return {

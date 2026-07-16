@@ -65,6 +65,7 @@ class MergeEngine {
       n: product.internal_name,
       br: product.brand,
       cat: product.category,
+      department: product.department,
       cost: bestSupplier.price,
       margin: marginRules.margin || marginRules.value || 0,
       price: sellingPrice,
@@ -73,7 +74,7 @@ class MergeEngine {
       img: mediaObj.main || '',
       sz: Array.from(allSizes),
       inStock: aggregatedStock,
-      sourceSeller: bestSupplier.url,
+      sourceSeller: bestSupplier.seller_url || bestSupplier.url,
       lastChecked: bestSupplier.last_sync
     };
   }
@@ -98,7 +99,7 @@ class MergeEngine {
     if (allSuppliers.length > 0) {
       const s = allSuppliers[0]; // just grab the first one for legacy metadata
       mediaObj = typeof s.media === 'string' ? JSON.parse(s.media) : (s.media || {});
-      lastUrl = s.url;
+      lastUrl = s.seller_url || s.url;
       lastSync = s.last_sync;
     }
 
@@ -107,6 +108,7 @@ class MergeEngine {
       n: product.internal_name,
       br: product.brand,
       cat: product.category,
+      department: product.department,
       price: 0,
       cost: 0,
       inStock: false,

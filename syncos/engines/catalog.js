@@ -7,19 +7,20 @@ class CatalogBuilder {
    * @param {Object[]} mergedProducts 
    */
   build(mergedProducts) {
-    const cats = {};
+    const defaultFilters = ["All", "Shoes", "Jeans", "Shirts", "Trackpants", "Watches", "Goggles", "Flip Flops", "Traditional"];
+    const cats = {
+      men: { label: "Men", filters: defaultFilters, items: [] },
+      women: { label: "Women", filters: defaultFilters, items: [] },
+      kids: { label: "Kids", filters: defaultFilters, items: [] }
+    };
 
     // Group by category
     for (const p of mergedProducts) {
       let catKey = (p.cat || 'other').toLowerCase();
-      // Derive top-level category from ID prefix
-      let topCat = 'men';
-      if (p.id.startsWith('w')) topCat = 'women';
-      if (p.id.startsWith('k')) topCat = 'kids';
+      // Use department from product schema
+      let topCat = p.department || 'men';
 
-      // Define default filters
-      const defaultFilters = ["All", "Shoes", "Jeans", "Shirts", "Trackpants", "Watches", "Goggles", "Flip Flops", "Traditional"];
-
+      
       if (!cats[topCat]) {
         cats[topCat] = {
           label: topCat.charAt(0).toUpperCase() + topCat.slice(1),

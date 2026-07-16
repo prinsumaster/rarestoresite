@@ -113,7 +113,7 @@ class SyncOS {
           // --- Idempotent DB Write ---
           await db.beginTransaction();
           const existingSupplier = await db.get(
-            `SELECT * FROM suppliers WHERE product_id = ? AND url = ?`,
+            `SELECT * FROM suppliers WHERE product_id = ? AND seller_url = ?`,
             [job.product_id, url]
           );
 
@@ -138,13 +138,13 @@ class SyncOS {
           if (!existingSupplier) {
             isChanged = true;
             await db.run(
-              `INSERT INTO suppliers (product_id, supplier_id, url, price, stock, sizes, media, health_score, last_sync, title, validation, response_time, retry_count, hash, status)
+              `INSERT INTO suppliers (product_id, supplier_id, seller_url, price, stock, sizes, media, health_score, last_sync, title, validation, response_time, retry_count, hash, status)
                VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?)`,
               [job.product_id, 'plugin_seller', url, newPrice, newStock, newSizes, newMedia, healthScore, title, validationJson, responseTime, job.retries, payloadHash, status]
             );
             
             await db.run(`INSERT INTO seller_history (product_id, supplier_id, event, metadata) VALUES (?, ?, ?, ?)`, 
-                         [job.product_id, 'plugin_seller', 'SELLER_ADDED', JSON.stringify({ url })]);
+                         [job.product_id, 'plugin_seller', 'SELLER_ADDED', JSON.stringify({ seller_url: url })]);
           } else {
             if (existingSupplier.price !== newPrice) {
               isChanged = true;

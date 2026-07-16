@@ -19,7 +19,6 @@ var CATS = {
         "n": "Adidas Yeezy Boost 350 V2 Carbon Beluga (Semi UA)",
         "br": "Adidas",
         "cat": "Shoes",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": null,
@@ -39,6 +38,7 @@ var CATS = {
           "45"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.274Z"
       },
       {
@@ -46,7 +46,6 @@ var CATS = {
         "n": "On Cloud Tilt 2.0 Ivory Black",
         "br": "On Running",
         "cat": "Shoes",
-        "department": "men",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -61,14 +60,13 @@ var CATS = {
         ],
         "video": null,
         "sourceSeller": "https://supreme.cartpe.in/on-cloud-tilt-2-0-ivory-black-npi601149771-supreme.html",
-        "lastChecked": "2026-07-16 15:30:13"
+        "lastChecked": "2026-07-16 12:59:29"
       },
       {
         "id": "m2",
         "n": "Adidas Samba Black",
         "br": "Adidas",
         "cat": "Shoes",
-        "department": "men",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -84,14 +82,13 @@ var CATS = {
         ],
         "video": null,
         "sourceSeller": "https://laceupshoe.cartpe.in/adida-s-samba-og-black-white-lpi572804322-laceupshoe.html",
-        "lastChecked": "2026-07-16 15:30:19"
+        "lastChecked": "2026-07-16 12:59:42"
       },
       {
         "id": "m3",
         "n": "ADDIDAS Samba OG Black White",
         "br": "Adidas",
         "cat": "Shoes",
-        "department": "men",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -107,14 +104,13 @@ var CATS = {
         ],
         "video": null,
         "sourceSeller": "https://laceupshoe.cartpe.in/adida-s-samba-og-black-white-lpi572804322-laceupshoe.html",
-        "lastChecked": "2026-07-16 15:30:19"
+        "lastChecked": "2026-07-16 12:59:43"
       },
       {
         "id": "m4",
         "n": "Nik.e Airforce 1 Black 1st Leather UA",
         "br": "Nike",
         "cat": "Shoes",
-        "department": "men",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -130,7 +126,7 @@ var CATS = {
         ],
         "video": null,
         "sourceSeller": "https://supreme.cartpe.in/nik-e-airforce-1-black-1st-leather-ua-lpi568666048-supreme.html",
-        "lastChecked": "2026-07-16 15:30:14"
+        "lastChecked": "2026-07-16 12:59:34"
       },
       {
         "id": "m5",
@@ -138,7 +134,6 @@ var CATS = {
         "n": "Asics Gel Kensie Max Blue Orange",
         "br": "Asics",
         "cat": "Shoes",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -152,6 +147,7 @@ var CATS = {
           "44"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -160,7 +156,6 @@ var CATS = {
         "n": "Asics SuperBlast 2 Black",
         "br": "Asics",
         "cat": "Shoes",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -175,6 +170,7 @@ var CATS = {
           "45"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -183,7 +179,6 @@ var CATS = {
         "n": "New Balance 9060 Sea Salt",
         "br": "New Balance",
         "cat": "Shoes",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -195,6 +190,7 @@ var CATS = {
           "44"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -203,7 +199,6 @@ var CATS = {
         "n": "Nike Dunk Low Year Of Dragon",
         "br": "Nike",
         "cat": "Shoes",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -218,6 +213,7 @@ var CATS = {
           "45"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -226,7 +222,6 @@ var CATS = {
         "n": "Nike SB Dunk Low Cacao Wow",
         "br": "Nike",
         "cat": "Shoes",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -240,6 +235,7 @@ var CATS = {
           "45"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -247,7 +243,6 @@ var CATS = {
         "n": "Pum.a Speed Cat Black Pink",
         "br": "Puma",
         "cat": "Shoes",
-        "department": "men",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -262,7 +257,7 @@ var CATS = {
         ],
         "video": null,
         "sourceSeller": "https://supreme.cartpe.in/pum-a-speed-cat-black-pink-npi600923978-supreme.html",
-        "lastChecked": "2026-07-16 15:30:16"
+        "lastChecked": "2026-07-16 12:59:36"
       },
       {
         "id": "m11",
@@ -270,7 +265,6 @@ var CATS = {
         "n": "Timberland Suede Boots Wheat",
         "br": "Timberland",
         "cat": "Shoes",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -282,6 +276,7 @@ var CATS = {
           "45"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -290,7 +285,6 @@ var CATS = {
         "n": "Adidas Yeezy Slide Onyx UA",
         "br": "Adidas Yeezy",
         "cat": "Flip Flops",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -304,6 +298,7 @@ var CATS = {
           "UK9.5/EU44"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -312,7 +307,6 @@ var CATS = {
         "n": "Adidas Yeezy Slide Bone UA",
         "br": "Adidas Yeezy",
         "cat": "Flip Flops",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -325,6 +319,7 @@ var CATS = {
           "UK9/EU43"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -333,7 +328,6 @@ var CATS = {
         "n": "Adidas Yeezy Slide Pure UA",
         "br": "Adidas Yeezy",
         "cat": "Flip Flops",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -346,6 +340,7 @@ var CATS = {
           "UK9/EU43"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -354,7 +349,6 @@ var CATS = {
         "n": "Nike ReactX Rejuven8 White",
         "br": "Nike",
         "cat": "Flip Flops",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -368,6 +362,7 @@ var CATS = {
           "UK8.5/EU43"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -376,7 +371,6 @@ var CATS = {
         "n": "Under Armour Black Slide",
         "br": "Under Armour",
         "cat": "Flip Flops",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -388,6 +382,7 @@ var CATS = {
           "UK10/EU45"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -396,7 +391,6 @@ var CATS = {
         "n": "Slim Fit Dark Wash Denim",
         "br": "RareStore",
         "cat": "Jeans",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -411,6 +405,7 @@ var CATS = {
           "36"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -419,7 +414,6 @@ var CATS = {
         "n": "Distressed Ripped Jeans",
         "br": "RareStore",
         "cat": "Jeans",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -433,6 +427,7 @@ var CATS = {
           "34"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -441,7 +436,6 @@ var CATS = {
         "n": "Relaxed Fit Cargo Jeans",
         "br": "RareStore",
         "cat": "Jeans",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -455,6 +449,7 @@ var CATS = {
           "36"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -462,7 +457,6 @@ var CATS = {
         "n": "Boss x Porsche Edition White Collar Neck Premium Polo T-shirt F5040-WH",
         "br": "RareStore",
         "cat": "Shirts",
-        "department": "men",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -481,9 +475,9 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/6a562fbeb69c16.jpeg",
           "https://cdn.cartpe.in/images/gallery_md/6a562fbeb63f83.jpeg"
         ],
-        "video": null,
+        "video": "https://cdn.cartpe.in/images/video_upload/o_1jtgfp2kc1qlsj481oi01227rr58.mp4",
         "sourceSeller": "https://fashionfreakclothing.cartpe.in/boss-x-porsche-edition-white-collar-neck-premium-polo-t-shirt-f5040-wh-npi601466999-fashionfreakclothing.html",
-        "lastChecked": "2026-07-16 15:30:23"
+        "lastChecked": "2026-07-16 12:59:49"
       },
       {
         "id": "m21",
@@ -491,7 +485,6 @@ var CATS = {
         "n": "Oversized Graphic Tee",
         "br": "RareStore",
         "cat": "Shirts",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -505,6 +498,7 @@ var CATS = {
           "XL"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -512,7 +506,6 @@ var CATS = {
         "n": "Boss x Porsche Edition Navy Collar Neck Premium Polo T-shirt F5040-NY",
         "br": "RareStore",
         "cat": "Shirts",
-        "department": "men",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -532,14 +525,13 @@ var CATS = {
         ],
         "video": "https://cdn.cartpe.in/images/video_upload/o_1jtgfph0d11elkcbhsm8d7um58.mp4",
         "sourceSeller": "https://fashionfreakclothing.cartpe.in/boss-x-porsche-edition-navy-collar-neck-premium-polo-t-shirt-f5040-ny-npi601464964-fashionfreakclothing.html",
-        "lastChecked": "2026-07-16 15:30:23"
+        "lastChecked": "2026-07-16 12:59:50"
       },
       {
         "id": "m23",
         "n": "Slim Track Pants Black",
         "br": "RareStore",
         "cat": "Trackpants",
-        "department": "men",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -548,7 +540,7 @@ var CATS = {
         "imgs": [],
         "video": null,
         "sourceSeller": "https://fashionfreakclothing.cartpe.in/track-pants.html",
-        "lastChecked": "2026-07-16 15:30:24"
+        "lastChecked": "2026-07-16 12:59:52"
       },
       {
         "id": "m24",
@@ -556,7 +548,6 @@ var CATS = {
         "n": "Jogger Pants Grey",
         "br": "RareStore",
         "cat": "Trackpants",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -570,6 +561,7 @@ var CATS = {
           "XL"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -578,7 +570,6 @@ var CATS = {
         "n": "Minimalist Watch Black",
         "br": "RareStore",
         "cat": "Watches",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -589,6 +580,7 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -597,7 +589,6 @@ var CATS = {
         "n": "Chronograph Steel Watch",
         "br": "RareStore",
         "cat": "Watches",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -608,6 +599,7 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -616,7 +608,6 @@ var CATS = {
         "n": "Premium Aviator Sunglasses",
         "br": "RareStore",
         "cat": "Goggles",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -627,6 +618,7 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -635,7 +627,6 @@ var CATS = {
         "n": "Wraparound Sport Goggles",
         "br": "RareStore",
         "cat": "Goggles",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -646,6 +637,7 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -653,7 +645,6 @@ var CATS = {
         "n": "Boss x Porsche Edition White Collar Neck Premium Polo T-shirt F5040-WH",
         "br": "RareStore",
         "cat": "Traditional",
-        "department": "men",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -672,9 +663,9 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/6a562fbeb69c16.jpeg",
           "https://cdn.cartpe.in/images/gallery_md/6a562fbeb63f83.jpeg"
         ],
-        "video": null,
+        "video": "https://cdn.cartpe.in/images/video_upload/o_1jtgfp2kc1qlsj481oi01227rr58.mp4",
         "sourceSeller": "https://fashionfreakclothing.cartpe.in/boss-x-porsche-edition-white-collar-neck-premium-polo-t-shirt-f5040-wh-npi601466999-fashionfreakclothing.html",
-        "lastChecked": "2026-07-16 15:30:25"
+        "lastChecked": "2026-07-16 12:59:53"
       },
       {
         "id": "m30",
@@ -682,7 +673,6 @@ var CATS = {
         "n": "Sherwani Jacket Black",
         "br": "RareStore",
         "cat": "Traditional",
-        "department": "men",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -696,30 +686,14 @@ var CATS = {
           "XL"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
-      }
-    ]
-  },
-  "women": {
-    "label": "Women",
-    "filters": [
-      "All",
-      "Shoes",
-      "Jeans",
-      "Shirts",
-      "Trackpants",
-      "Watches",
-      "Goggles",
-      "Flip Flops",
-      "Traditional"
-    ],
-    "items": [
+      },
       {
         "id": "w1",
         "n": "Nik.e Airforce 1 Black 1st Leather UA",
         "br": "Nike",
         "cat": "Shoes",
-        "department": "women",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -735,7 +709,7 @@ var CATS = {
         ],
         "video": null,
         "sourceSeller": "https://supreme.cartpe.in/nik-e-airforce-1-black-1st-leather-ua-lpi568666048-supreme.html",
-        "lastChecked": "2026-07-16 15:30:16"
+        "lastChecked": "2026-07-16 12:59:37"
       },
       {
         "id": "w2",
@@ -743,7 +717,6 @@ var CATS = {
         "n": "Nike Air Jordan 5 Soft Pink",
         "br": "Nike",
         "cat": "Shoes",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -756,6 +729,7 @@ var CATS = {
           "40"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -764,7 +738,6 @@ var CATS = {
         "n": "Nike Air Force 1 Valentines Day",
         "br": "Nike",
         "cat": "Shoes",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -776,6 +749,7 @@ var CATS = {
           "39"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -783,7 +757,6 @@ var CATS = {
         "n": "ADDIDAS Samba OG Black White",
         "br": "Adidas",
         "cat": "Shoes",
-        "department": "women",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -799,7 +772,7 @@ var CATS = {
         ],
         "video": null,
         "sourceSeller": "https://laceupshoe.cartpe.in/adida-s-samba-og-black-white-lpi572804322-laceupshoe.html",
-        "lastChecked": "2026-07-16 15:30:20"
+        "lastChecked": "2026-07-16 12:59:45"
       },
       {
         "id": "w5",
@@ -807,7 +780,6 @@ var CATS = {
         "n": "Nike SB Dunk Low Rose Whisper",
         "br": "Nike",
         "cat": "Shoes",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -820,6 +792,7 @@ var CATS = {
           "40"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -828,7 +801,6 @@ var CATS = {
         "n": "New Balance 204L Pastel Pink",
         "br": "New Balance",
         "cat": "Shoes",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -840,6 +812,7 @@ var CATS = {
           "39"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.279Z"
       },
       {
@@ -848,7 +821,6 @@ var CATS = {
         "n": "Nike Air Jordan 1 Washed Pink",
         "br": "Nike",
         "cat": "Shoes",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -860,6 +832,7 @@ var CATS = {
           "38"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.280Z"
       },
       {
@@ -867,7 +840,6 @@ var CATS = {
         "n": "Onitsuk_a Tiger Mexico 66 Navy Beige",
         "br": "Onitsuka Tiger",
         "cat": "Shoes",
-        "department": "women",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -880,7 +852,7 @@ var CATS = {
         ],
         "video": null,
         "sourceSeller": "https://laceupshoe.cartpe.in/onitsuk-a-tiger-mexico-66-navy-beige-lpi572804423-laceupshoe.html",
-        "lastChecked": "2026-07-16 15:30:21"
+        "lastChecked": "2026-07-16 12:59:46"
       },
       {
         "id": "w9",
@@ -888,7 +860,6 @@ var CATS = {
         "n": "Adidas Samba OG Maroon",
         "br": "Adidas",
         "cat": "Shoes",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -901,6 +872,7 @@ var CATS = {
           "40"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.280Z"
       },
       {
@@ -909,7 +881,6 @@ var CATS = {
         "n": "Adidas Yeezy Slide Azure UA",
         "br": "Adidas Yeezy",
         "cat": "Flip Flops",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -922,6 +893,7 @@ var CATS = {
           "UK7/EU40"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.280Z"
       },
       {
@@ -929,7 +901,6 @@ var CATS = {
         "n": "Crocs Mellow Flip Flop",
         "br": "Crocs",
         "cat": "Flip Flops",
-        "department": "women",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -938,7 +909,7 @@ var CATS = {
         "imgs": [],
         "video": null,
         "sourceSeller": "https://laceupshoe.cartpe.in/flipflops-footwear.html",
-        "lastChecked": "2026-07-16 15:30:22"
+        "lastChecked": "2026-07-16 12:59:47"
       },
       {
         "id": "w12",
@@ -946,7 +917,6 @@ var CATS = {
         "n": "High Waist Skinny Jeans",
         "br": "RareStore",
         "cat": "Jeans",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -960,6 +930,7 @@ var CATS = {
           "32"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.280Z"
       },
       {
@@ -968,7 +939,6 @@ var CATS = {
         "n": "Mom Fit Vintage Jeans",
         "br": "RareStore",
         "cat": "Jeans",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -981,6 +951,7 @@ var CATS = {
           "30"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.280Z"
       },
       {
@@ -989,7 +960,6 @@ var CATS = {
         "n": "Crop Top White",
         "br": "RareStore",
         "cat": "Shirts",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1003,6 +973,7 @@ var CATS = {
           "L"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.280Z"
       },
       {
@@ -1010,7 +981,6 @@ var CATS = {
         "n": "Casablanca Oversized T-shirt Black",
         "br": "RareStore",
         "cat": "Shirts",
-        "department": "women",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -1025,7 +995,7 @@ var CATS = {
         ],
         "video": null,
         "sourceSeller": "https://trendy-reseller-in.cartpe.in/casablanca-oversized-t-shirt-black-npi602303358-trendy-reseller-in.html",
-        "lastChecked": "2026-07-16 15:30:30"
+        "lastChecked": "2026-07-16 13:00:01"
       },
       {
         "id": "w16",
@@ -1033,7 +1003,6 @@ var CATS = {
         "n": "Silk Track Set",
         "br": "RareStore",
         "cat": "Trackpants",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1047,6 +1016,7 @@ var CATS = {
           "L"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.280Z"
       },
       {
@@ -1055,7 +1025,6 @@ var CATS = {
         "n": "Jogger Pants Pink",
         "br": "RareStore",
         "cat": "Trackpants",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1068,6 +1037,7 @@ var CATS = {
           "L"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.280Z"
       },
       {
@@ -1076,7 +1046,6 @@ var CATS = {
         "n": "Rose Gold Ladies Watch",
         "br": "RareStore",
         "cat": "Watches",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1087,6 +1056,7 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1095,7 +1065,6 @@ var CATS = {
         "n": "Cat Eye Sunglasses",
         "br": "RareStore",
         "cat": "Goggles",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1106,6 +1075,7 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1114,7 +1084,6 @@ var CATS = {
         "n": "Anarkali Suit Pink",
         "br": "RareStore",
         "cat": "Traditional",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1128,6 +1097,7 @@ var CATS = {
           "L"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1136,7 +1106,6 @@ var CATS = {
         "n": "Lehenga Set Gold",
         "br": "RareStore",
         "cat": "Traditional",
-        "department": "women",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1150,31 +1119,15 @@ var CATS = {
           "L"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
-      }
-    ]
-  },
-  "kids": {
-    "label": "Kids",
-    "filters": [
-      "All",
-      "Shoes",
-      "Jeans",
-      "Shirts",
-      "Trackpants",
-      "Watches",
-      "Goggles",
-      "Flip Flops",
-      "Traditional"
-    ],
-    "items": [
+      },
       {
         "id": "k1",
         "fixedPrice": false,
         "n": "Junior Nike Air Force 1",
         "br": "Nike",
         "cat": "Shoes",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1188,6 +1141,7 @@ var CATS = {
           "UK4"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1196,7 +1150,6 @@ var CATS = {
         "n": "Kids Adidas Samba",
         "br": "Adidas",
         "cat": "Shoes",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1210,6 +1163,7 @@ var CATS = {
           "UK4"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1218,7 +1172,6 @@ var CATS = {
         "n": "Junior Asics Gel Runner",
         "br": "Asics",
         "cat": "Shoes",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1232,6 +1185,7 @@ var CATS = {
           "UK5"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1240,7 +1194,6 @@ var CATS = {
         "n": "Kids Yeezy Slide",
         "br": "Adidas Yeezy",
         "cat": "Flip Flops",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1253,6 +1206,7 @@ var CATS = {
           "EU38"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1261,7 +1215,6 @@ var CATS = {
         "n": "Kids Slim Denim",
         "br": "RareStore",
         "cat": "Jeans",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1275,6 +1228,7 @@ var CATS = {
           "9-10Y"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1283,7 +1237,6 @@ var CATS = {
         "n": "Kids Cargo Pants",
         "br": "RareStore",
         "cat": "Jeans",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1296,6 +1249,7 @@ var CATS = {
           "7-8Y"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1303,7 +1257,6 @@ var CATS = {
         "n": "Boss x Porsche Edition Black Collar Neck Premium Polo T-shirt F5040-BL",
         "br": "RareStore",
         "cat": "Shirts",
-        "department": "kids",
         "price": 0,
         "cost": 0,
         "inStock": false,
@@ -1323,7 +1276,7 @@ var CATS = {
         ],
         "video": "https://cdn.cartpe.in/images/video_upload/o_1jtgfoid4ltt1ef19tui5i1mn88.mp4",
         "sourceSeller": "https://fashionfreakclothing.cartpe.in/boss-x-porsche-edition-black-collar-neck-premium-polo-t-shirt-f5040-bl-npi601469028-fashionfreakclothing.html",
-        "lastChecked": "2026-07-16 15:30:26"
+        "lastChecked": "2026-07-16 12:59:55"
       },
       {
         "id": "k8",
@@ -1331,7 +1284,6 @@ var CATS = {
         "n": "Kids Graphic Tee",
         "br": "RareStore",
         "cat": "Shirts",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1345,6 +1297,7 @@ var CATS = {
           "9-10Y"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1353,7 +1306,6 @@ var CATS = {
         "n": "Kids Jogger Pants",
         "br": "RareStore",
         "cat": "Trackpants",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1367,6 +1319,7 @@ var CATS = {
           "9-10Y"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1375,7 +1328,6 @@ var CATS = {
         "n": "Kids Digital Watch",
         "br": "RareStore",
         "cat": "Watches",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1386,6 +1338,7 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1394,7 +1347,6 @@ var CATS = {
         "n": "Kids UV Sunglasses",
         "br": "RareStore",
         "cat": "Goggles",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1405,6 +1357,7 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       },
       {
@@ -1413,7 +1366,6 @@ var CATS = {
         "n": "Kids Kurta Set",
         "br": "RareStore",
         "cat": "Traditional",
-        "department": "kids",
         "cost": null,
         "margin": 0,
         "price": 400,
@@ -1427,6 +1379,7 @@ var CATS = {
           "9-10Y"
         ],
         "inStock": true,
+        "sourceSeller": "",
         "lastChecked": "2026-07-16T12:08:10.281Z"
       }
     ]
