@@ -1,145 +1,258 @@
+'use strict';
+
+/**
+ * sync-seller-data.js — Production Live Sync Pipeline
+ *
+ * Visits each seller URL in product-map.json, scrapes price/stock/media,
+ * selects the cheapest in-stock seller per product, validates media via HEAD
+ * requests, then updates data.js with hotlinked URLs + metadata.
+ *
+ * NEVER downloads media. NEVER pushes to main. Output goes to PR only.
+ */
+
 const fs = require('fs');
-const puppeteer = require('puppeteer');
 const path = require('path');
 const vm = require('vm');
+const puppeteer = require('puppeteer');
 const axios = require('axios');
 
-async function checkUrl(url) {
-  if (!url) return false;
+// ─── Paths ───────────────────────────────────────────────────────────────────
+const ROOT = path.join(__dirname, '..');
+const MAP_PATH = path.join(__dirname, 'product-map.json');
+const PROFIT_PATH = path.join(__dirname, 'profit-config.json');
+const DATA_PATH = path.join(ROOT, 'data.js');
+
+// ─── Helpers ─────────────────────────────────────────────────────────────────
+
+/**
+ * HEAD-check a URL. Returns true only if it resolves with HTTP 2xx.
+ * Falls back to a GET range-request if the server rejects HEAD (common on CDNs).
+ */
+async function isReachable(url) {
+  if (!url || !url.startsWith('http')) return false;
   try {
-    const res = await axios.head(url, { timeout: 10000, validateStatus: () => true });
+    const res = await axios.head(url, {
+      timeout: 12000,
+      validateStatus: () => true,
+      headers: { 'User-Agent': 'Mozilla/5.0' }
+    });
     if (res.status >= 200 && res.status < 400) return true;
-    
-    // Fallback to GET if HEAD is rejected (common on some CDNs)
+    // Some CDNs refuse HEAD — try a minimal GET
     if (res.status === 405 || res.status === 403) {
-      const getRes = await axios.get(url, { responseType: 'stream', timeout: 10000, validateStatus: () => true });
-      getRes.data.destroy();
-      return getRes.status >= 200 && getRes.status < 400;
+      const get = await axios.get(url, {
+        timeout: 12000,
+        responseType: 'stream',
+        validateStatus: () => true,
+        headers: { Range: 'bytes=0-0', 'User-Agent': 'Mozilla/5.0' }
+      });
+      get.data.destroy();
+      return get.status >= 200 && get.status < 400;
     }
     return false;
-  } catch (e) {
+  } catch {
     return false;
   }
 }
 
-async function run() {
-  const mapPath = path.join(__dirname, 'product-map.json');
-  const profitPath = path.join(__dirname, 'profit-config.json');
-  const dataPath = path.join(__dirname, '../data.js');
+/**
+ * Parse margin config and compute the final price for a product.
+ */
+function computePrice(sellerPrice, localId, profitConfig) {
+  const rule = profitConfig[localId] || profitConfig['default'] || { type: 'flat', value: 400 };
+  if (rule.type === 'percent') return Math.round(sellerPrice + sellerPrice * (rule.value / 100));
+  return Math.round(sellerPrice + rule.value); // flat
+}
 
-  if (!fs.existsSync(mapPath)) {
-    console.error('product-map.json not found!');
-    return;
-  }
-  
-  const productMap = JSON.parse(fs.readFileSync(mapPath, 'utf-8'));
-  const profitConfig = fs.existsSync(profitPath) ? JSON.parse(fs.readFileSync(profitPath, 'utf-8')) : { default: { type: 'flat', value: 400 } };
-
-  // Read data.js securely
-  let dataFile = fs.readFileSync(dataPath, 'utf-8');
-  const sandbox = { SB: 'https://cdn.cartpe.in/images/gallery_sm/', UB: 'https://images.unsplash.com/', CATS: {} };
+/**
+ * Read data.js safely and return the CATS object.
+ */
+function readDataJs() {
+  const raw = fs.readFileSync(DATA_PATH, 'utf-8');
+  const sandbox = { CATS: {} };
   vm.createContext(sandbox);
-  try {
-    vm.runInContext(dataFile, sandbox);
-  } catch(e) {
-    console.error('Failed to parse data.js', e);
-    return;
-  }
-  const CATS = sandbox.CATS;
+  vm.runInContext(raw, sandbox);
+  return sandbox.CATS;
+}
 
-  const localItems = {};
-  for (const cat in CATS) {
-    CATS[cat].items.forEach(item => {
-      localItems[item.id] = { item, category: cat };
-    });
-  }
+/**
+ * Write CATS back to data.js preserving the var declaration format.
+ */
+function writeDataJs(cats) {
+  fs.writeFileSync(DATA_PATH, `var CATS = ${JSON.stringify(cats, null, 2)};`, 'utf-8');
+}
 
-  const browser = await puppeteer.launch({ headless: 'new' });
-  const groupedResults = {};
-  const warnings = [];
-  const summaryTable = [];
+// ─── Scrape one seller page ───────────────────────────────────────────────────
 
-  for (const map of productMap) {
-    if (map.sellerUrl.includes('fill-this-with-real-product-url')) {
-      console.log(`Skipping placeholder URL: ${map.sellerUrl}`);
-      continue;
+async function scrapePage(page, url) {
+  const networkVideos = new Set();
+
+  // Intercept network responses to catch CDN-served / lazy-loaded videos
+  const handler = response => {
+    const ct = response.headers()['content-type'] || '';
+    const u = response.url();
+    if (ct.startsWith('video/') || u.match(/\.(mp4|webm|mov)(\?|$)/i)) {
+      networkVideos.add(u);
     }
-    console.log(`\nScraping: ${map.sellerUrl}`);
-    const page = await browser.newPage();
-    
-    const networkVideos = new Set();
-    page.on('response', response => {
-      const contentType = response.headers()['content-type'] || '';
-      const url = response.url();
-      if (contentType.includes('video/') || url.match(/\.(mp4|webm|mov)$/i)) {
-        networkVideos.add(url);
+  };
+  page.on('response', handler);
+
+  try {
+    await page.goto(url, { waitUntil: 'networkidle2', timeout: 45000 });
+  } catch (err) {
+    page.off('response', handler);
+    throw err;
+  }
+  page.off('response', handler);
+
+  const result = await page.evaluate(() => {
+    // ── Images ──────────────────────────────────────────────────────────────
+    // CartPe gallery images appear in .gallery-main and .gal-thumb containers
+    let imgs = [];
+    const galMain = document.querySelector('.gallery-main img');
+    if (galMain && galMain.src) imgs.push(galMain.src);
+    document.querySelectorAll('.gal-thumb img').forEach(el => { if (el.src) imgs.push(el.src); });
+
+    // Fallback: any reasonably large image on the page
+    if (imgs.length === 0) {
+      imgs = Array.from(document.querySelectorAll('img'))
+        .filter(el => el.naturalWidth > 200 && el.src && el.src.startsWith('http'))
+        .map(el => el.src);
+    }
+    imgs = [...new Set(imgs)].filter(Boolean);
+
+    // ── DOM Videos ──────────────────────────────────────────────────────────
+    const vids = new Set();
+    document.querySelectorAll('video, source').forEach(el => {
+      if (el.src && el.src.startsWith('http')) vids.add(el.src);
+    });
+    document.querySelectorAll('[data-video-src]').forEach(el => {
+      const v = el.getAttribute('data-video-src');
+      if (v && v.startsWith('http')) vids.add(v);
+    });
+    document.querySelectorAll('a[href]').forEach(el => {
+      if (el.href.match(/\.(mp4|webm|mov)(\?|$)/i)) vids.add(el.href);
+    });
+
+    // ── Price ────────────────────────────────────────────────────────────────
+    // CartPe structure: <div id="price_div"><h1 class="theme-color"><i class="fa fa-inr"></i> PRICE<small>MRP</small></h1></div>
+    // The ₹ symbol is a FontAwesome icon (fa-inr), NOT a text character — so we
+    // must read the direct text node of the h1, not innerText of the whole thing.
+    let price = 0;
+
+    // Primary: CartPe's #price_div > h1
+    const priceDivH1 = document.querySelector('#price_div h1');
+    if (priceDivH1) {
+      // Remove the <small> (MRP) child so we only read the selling price text node
+      const clone = priceDivH1.cloneNode(true);
+      clone.querySelectorAll('small, span').forEach(el => el.remove());
+      const digits = clone.textContent.replace(/[^\d]/g, '');
+      if (digits.length >= 2 && digits.length <= 7) {
+        price = parseInt(digits, 10);
+      }
+    }
+
+    // Fallback: h1.theme-color (same structure without id wrapper)
+    if (price === 0) {
+      const themeH1 = document.querySelector('h1.theme-color');
+      if (themeH1) {
+        const clone = themeH1.cloneNode(true);
+        clone.querySelectorAll('small, span').forEach(el => el.remove());
+        const digits = clone.textContent.replace(/[^\d]/g, '');
+        if (digits.length >= 2 && digits.length <= 7) {
+          price = parseInt(digits, 10);
+        }
+      }
+    }
+
+    // Fallback: any element whose class or id contains "price"
+    if (price === 0) {
+      const priceEl = document.querySelector('[id*="price" i] h1, [class*="price" i]');
+      if (priceEl) {
+        const clone = priceEl.cloneNode(true);
+        clone.querySelectorAll('small, s, del, strike').forEach(el => el.remove());
+        const digits = clone.textContent.replace(/[^\d]/g, '');
+        if (digits.length >= 2 && digits.length <= 7) {
+          price = parseInt(digits, 10);
+        }
+      }
+    }
+
+    // ── Stock status ─────────────────────────────────────────────────────────
+    const bodyText = document.body.innerText.toLowerCase();
+    const oosText = bodyText.includes('out of stock') || bodyText.includes('sold out');
+    // Check if the primary CTA button is disabled
+    let cartDisabled = false;
+    document.querySelectorAll('button').forEach(btn => {
+      const t = btn.innerText.toLowerCase();
+      if ((t.includes('add to cart') || t.includes('buy now')) && btn.disabled) {
+        cartDisabled = true;
       }
     });
+    const inStock = !(oosText || cartDisabled);
+
+    return {
+      imgs,
+      domVideos: Array.from(vids),
+      price,
+      inStock
+    };
+  });
+
+  result.networkVideos = Array.from(networkVideos);
+  result.allVideos = [...new Set([...result.domVideos, ...result.networkVideos])].filter(Boolean);
+  delete result.domVideos;
+  delete result.networkVideos;
+
+  return result;
+}
+
+// ─── Main ─────────────────────────────────────────────────────────────────────
+
+async function main() {
+  const productMap = JSON.parse(fs.readFileSync(MAP_PATH, 'utf-8'));
+  const profitConfig = JSON.parse(fs.readFileSync(PROFIT_PATH, 'utf-8'));
+  const CATS = readDataJs();
+
+  // Build a flat map of localId → item object for fast lookup
+  const itemMap = {};
+  for (const cat of Object.values(CATS)) {
+    for (const item of cat.items) {
+      itemMap[item.id] = item;
+    }
+  }
+
+  // Filter out placeholder/unfilled entries
+  const validMappings = productMap.filter(
+    m => m.sellerUrl && !m.sellerUrl.includes('fill-this') && m.localId && itemMap[m.localId]
+  );
+  if (validMappings.length === 0) {
+    console.log('No valid mappings found in product-map.json. Exiting.');
+    return;
+  }
+
+  console.log(`Starting sync for ${validMappings.length} seller-product mappings…\n`);
+
+  const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'] });
+
+  // Grouped results: localId → array of scraped seller results
+  const grouped = {};
+  const scrapeErrors = [];
+
+  for (const mapping of validMappings) {
+    const { sellerUrl, localId } = mapping;
+    console.log(`Scraping [${localId}] → ${sellerUrl}`);
+
+    const page = await browser.newPage();
+    await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36');
 
     try {
-      await page.goto(map.sellerUrl, { waitUntil: 'networkidle2', timeout: 30000 });
-      
-      const scrapedData = await page.evaluate(() => {
-        // Images
-        let imgs = Array.from(document.querySelectorAll('.gallery-main img, .gal-thumb img')).map(img => img.src);
-        if (imgs.length === 0) {
-          imgs = Array.from(document.querySelectorAll('img'))
-            .filter(img => img.naturalWidth > 200)
-            .map(img => img.src);
-        }
-        imgs = [...new Set(imgs)];
-
-        // Videos
-        const vids = new Set();
-        document.querySelectorAll('video, source').forEach(el => { if (el.src) vids.add(el.src); });
-        document.querySelectorAll('a').forEach(el => {
-          if (el.href && el.href.match(/\.(mp4|webm|mov)$/i)) vids.add(el.href);
-        });
-        document.querySelectorAll('[data-video-src]').forEach(el => { vids.add(el.getAttribute('data-video-src')); });
-        
-        // Price
-        let price = 0;
-        const priceEl = document.getElementById('dPrice') || document.querySelector('.price, .product-price');
-        if (priceEl) {
-          price = parseInt(priceEl.innerText.replace(/[^\d]/g, ''), 10);
-        } else {
-          const elements = Array.from(document.querySelectorAll('span, div, p, h1, h2, h3, h4'));
-          for(let e of elements) {
-            if (e.innerText.includes('₹') && /\d/.test(e.innerText)) {
-              price = parseInt(e.innerText.replace(/[^\d]/g, ''), 10);
-              break;
-            }
-          }
-        }
-
-        // Stock Status
-        const bodyText = document.body.innerText.toLowerCase();
-        const isOosText = bodyText.includes('out of stock') || bodyText.includes('sold out');
-        // Look for common disabled cart buttons
-        const cartBtn = Array.from(document.querySelectorAll('button')).find(b => b.innerText.toLowerCase().includes('add to cart') || b.innerText.toLowerCase().includes('buy'));
-        const isCartDisabled = cartBtn ? cartBtn.disabled : false;
-        
-        const inStock = !(isOosText || isCartDisabled);
-
-        return { images: imgs, domVideos: Array.from(vids), price: price || 0, inStock };
-      });
-
-      const allVideos = [...new Set([...scrapedData.domVideos, ...Array.from(networkVideos)])].filter(v => v && v.startsWith('http'));
-      
-      console.log(`  -> Found ${scrapedData.images.length} images, ${allVideos.length} videos. Price: ${scrapedData.price}, In Stock: ${scrapedData.inStock}`);
-
-      if (!groupedResults[map.localId]) groupedResults[map.localId] = [];
-      groupedResults[map.localId].push({
-        sellerUrl: map.sellerUrl,
-        price: scrapedData.price,
-        images: scrapedData.images,
-        videos: allVideos,
-        inStock: scrapedData.inStock
-      });
-
+      const data = await scrapePage(page, sellerUrl);
+      console.log(`  ✓ imgs=${data.imgs.length} vids=${data.allVideos.length} price=₹${data.price} inStock=${data.inStock}`);
+      if (!grouped[localId]) grouped[localId] = [];
+      grouped[localId].push({ sellerUrl, ...data });
     } catch (err) {
-      console.error(`  -> Failed to scrape ${map.sellerUrl}:`, err.message);
-      warnings.push(`Failed to scrape ${map.sellerUrl}: ${err.message}`);
+      console.error(`  ✗ FAILED: ${err.message}`);
+      scrapeErrors.push(`[${localId}] ${sellerUrl}: ${err.message}`);
     } finally {
       await page.close();
     }
@@ -147,106 +260,134 @@ async function run() {
 
   await browser.close();
 
-  console.log('\n--- Selecting Winners & Verifying Media ---');
+  // ─── Winner selection + data.js update ───────────────────────────────────
+  console.log('\n─── Selecting winners & validating media ───\n');
 
-  for (const localId in groupedResults) {
-    if (!localItems[localId]) continue;
-    
-    const results = groupedResults[localId];
-    const localProduct = localItems[localId].item;
-    const oldPrice = localProduct.suggested_price || 0;
-    const oldSeller = localProduct.sourceSeller || 'N/A';
-    
-    // Filter to in-stock only
-    const inStockSellers = results.filter(r => r.inStock);
-    
-    let flags = [];
-    
-    if (inStockSellers.length === 0) {
-      console.log(`[${localId}] ALL sellers out of stock.`);
-      localProduct.inStock = false;
-      localProduct.lastChecked = new Date().toISOString();
-      summaryTable.push(`| ${localId} | N/A | N/A | ❌ Out of Stock | All sellers OOS |`);
+  const prSummaryRows = [];
+  const warnings = [];
+
+  for (const [localId, sellers] of Object.entries(grouped)) {
+    const item = itemMap[localId];
+
+    // Skip fixedPrice items — never overwrite their data
+    if (item.fixedPrice) {
+      console.log(`[${localId}] fixedPrice=true — skipping`);
       continue;
     }
 
-    // Pick lowest price
-    inStockSellers.sort((a, b) => a.price - b.price);
-    const bestSeller = inStockSellers[0];
-    
-    if (oldSeller !== 'N/A' && oldSeller !== bestSeller.sellerUrl) {
-      flags.push(`🔄 Switched source (was ${oldSeller})`);
+    const inStockSellers = sellers.filter(s => s.inStock);
+
+    if (inStockSellers.length === 0) {
+      console.log(`[${localId}] ALL sellers out of stock`);
+      item.inStock = false;
+      item.lastChecked = new Date().toISOString();
+      prSummaryRows.push(`| ${localId} | N/A | N/A | ❌ Out of Stock | All suppliers OOS |`);
+      continue;
     }
 
-    // Calculate Final Price
-    const rule = profitConfig[localId] || profitConfig['default'] || { type: 'flat', value: 400 };
-    let finalPrice = bestSeller.price;
-    if (rule.type === 'percent') finalPrice += bestSeller.price * (rule.value / 100);
-    else if (rule.type === 'flat') finalPrice += rule.value;
-    finalPrice = Math.round(finalPrice);
-    
-    if (oldPrice > 0) {
+    // Sort by price ascending; treat price=0 (parse failure) as last resort
+    inStockSellers.sort((a, b) => {
+      if (a.price === 0 && b.price > 0) return 1;
+      if (b.price === 0 && a.price > 0) return -1;
+      return a.price - b.price;
+    });
+
+    const best = inStockSellers[0];
+    const flags = [];
+
+    // Detect seller switch
+    const oldSeller = item.sourceSeller;
+    if (oldSeller && oldSeller !== best.sellerUrl) {
+      flags.push(`🔄 Switched from ${oldSeller}`);
+      console.log(`  [${localId}] Seller switch: ${oldSeller} → ${best.sellerUrl}`);
+    }
+
+    // Compute final price
+    const finalPrice = computePrice(best.price, localId, profitConfig);
+    const oldPrice = item.price || item.cost || 0;
+
+    // Flag big price jumps (>10%)
+    if (oldPrice > 0 && best.price > 0) {
       const changePct = Math.abs((finalPrice - oldPrice) / oldPrice);
       if (changePct > 0.1) {
-        flags.push(`📈 Price jumped ${(changePct*100).toFixed(1)}%`);
+        flags.push(`📈 Price jumped ${(changePct * 100).toFixed(1)}% (was ₹${oldPrice} → ₹${finalPrice})`);
       }
     }
 
-    // Verify Media Links (HEAD request)
-    let validImages = [];
-    for (const imgUrl of bestSeller.images) {
-      if (await checkUrl(imgUrl)) validImages.push(imgUrl);
-    }
-    
-    let validVideos = [];
-    for (const vidUrl of bestSeller.videos) {
-      if (await checkUrl(vidUrl)) validVideos.push(vidUrl);
-    }
-
-    if (validImages.length === 0) {
-      flags.push(`⚠️ Media unreachable (kept old images)`);
-    } else {
-      localProduct.imgs = validImages;
-      localProduct.img = validImages[0];
-    }
-
-    if (bestSeller.videos.length > 0) {
-      if (validVideos.length > 0) {
-        localProduct.video = validVideos[0];
+    // ── Media validation ──────────────────────────────────────────────────
+    // Validate images
+    let validImgs = [];
+    for (const imgUrl of best.imgs) {
+      if (await isReachable(imgUrl)) {
+        validImgs.push(imgUrl);
       } else {
-        flags.push(`⚠️ Video unreachable (kept old video)`);
+        console.log(`  [${localId}] ⚠ Unreachable image: ${imgUrl}`);
       }
     }
 
-    // Update Data
-    localProduct.price = finalPrice; // NOTE: standardizing on 'price' for the frontend or 'cost'
-    localProduct.suggested_price = finalPrice;
-    localProduct.inStock = true;
-    localProduct.sourceSeller = bestSeller.sellerUrl;
-    localProduct.lastChecked = new Date().toISOString();
+    if (validImgs.length === 0) {
+      // Fall back to previously stored images
+      validImgs = item.imgs || (item.img ? [item.img] : []);
+      flags.push('⚠️ Media unreachable — using last known-good images');
+      warnings.push(`[${localId}] Image URLs from ${best.sellerUrl} are unreachable — fell back to existing data`);
+    }
 
-    console.log(`[${localId}] Selected ${bestSeller.sellerUrl} at ₹${bestSeller.price} (Final: ₹${finalPrice})`);
-    
-    const flagStr = flags.length > 0 ? flags.join(', ') : '✅ OK';
-    summaryTable.push(`| ${localId} | ${bestSeller.sellerUrl} | ₹${finalPrice} | ✅ In Stock | ${flagStr} |`);
+    // Validate video
+    let validVideo = null;
+    for (const vidUrl of best.allVideos) {
+      if (await isReachable(vidUrl)) {
+        validVideo = vidUrl;
+        break;
+      } else {
+        console.log(`  [${localId}] ⚠ Unreachable video: ${vidUrl}`);
+      }
+    }
+    if (best.allVideos.length > 0 && !validVideo) {
+      flags.push('⚠️ Video unreachable — keeping existing');
+      warnings.push(`[${localId}] Video URLs from ${best.sellerUrl} are unreachable — kept existing`);
+    }
+
+    // ── Write updates ─────────────────────────────────────────────────────
+    if (validImgs.length > 0) {
+      item.imgs = validImgs;
+      item.img = validImgs[0];
+    }
+    if (validVideo !== null) {
+      item.video = validVideo;
+    }
+    if (best.price > 0) {
+      item.price = finalPrice;
+    }
+    item.inStock = true;
+    item.sourceSeller = best.sellerUrl;
+    item.lastChecked = new Date().toISOString();
+
+    const flagStr = flags.length > 0 ? flags.join(' | ') : '✅ OK';
+    prSummaryRows.push(`| ${localId} | [Seller](${best.sellerUrl}) | ₹${best.price > 0 ? finalPrice : 'N/A'} | ✅ In Stock | ${flagStr} |`);
+    console.log(`[${localId}] ✓ Selected ${best.sellerUrl} — Final price ₹${finalPrice}`);
   }
 
-  // Write back data
-  const newFileContent = `var CATS = ${JSON.stringify(CATS, null, 2)};`;
-  fs.writeFileSync(dataPath, newFileContent, 'utf-8');
+  // ── Write data.js ─────────────────────────────────────────────────────────
+  writeDataJs(CATS);
+  console.log('\ndata.js updated.');
 
-  console.log(`\nSync complete!`);
-  
-  // Output summary for GitHub Actions
+  // ── Print PR summary block (parsed by GitHub Actions) ─────────────────────
   console.log('\n--- PR_SUMMARY_START ---');
   console.log('| Product | Selected Seller | Final Price | Stock | Flags |');
   console.log('|---|---|---|---|---|');
-  summaryTable.forEach(row => console.log(row));
+  prSummaryRows.forEach(row => console.log(row));
   if (warnings.length > 0) {
-    console.log('\n**Warnings:**');
+    console.log('\n**⚠️ Manual review needed:**');
     warnings.forEach(w => console.log('- ' + w));
   }
-  console.log('--- PR_SUMMARY_END ---\n');
+  if (scrapeErrors.length > 0) {
+    console.log('\n**🔴 Scrape errors (these sellers were skipped):**');
+    scrapeErrors.forEach(e => console.log('- ' + e));
+  }
+  console.log('--- PR_SUMMARY_END ---');
 }
 
-run().catch(console.error);
+main().catch(err => {
+  console.error('Fatal error:', err);
+  process.exit(1);
+});

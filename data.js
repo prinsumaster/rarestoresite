@@ -53,13 +53,13 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/6a5615648b2432.jpeg",
           "https://cdn.cartpe.in/images/gallery_md/6a5615648ad1c1.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5734486d6342.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5733f8c4e7c0.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a5733f8c59812.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5733477a63f0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a573211c02900.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a563b2adbd3e0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a563228beaa20.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5631c01fdc71.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5624a3a1dac0.jpeg"
+          "https://cdn.cartpe.in/images/gallery_sm/6a56247848e2f0.jpeg"
         ],
         "video": "https://youtube.com/shorts/YyhTJZ2bC6Y",
         "sz": [
@@ -69,11 +69,11 @@ var CATS = {
           "45"
         ],
         "badge": "Hot",
-        "price": 400,
+        "price": 2901,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://supreme.cartpe.in/on-cloud-tilt-2-0-ivory-black-npi601149771-supreme.html",
-        "lastChecked": "2026-07-15T09:08:14.826Z"
+        "lastChecked": "2026-07-16T06:04:37.226Z"
       },
       {
         "id": "m2",
@@ -117,31 +117,33 @@ var CATS = {
         "br": "Adidas",
         "cat": "Shoes",
         "cost": 1501,
-        "img": "https://cdn.cartpe.in/images/gallery_md/685730932020c.jpeg",
+        "img": "https://cdn.cartpe.in/images/gallery_md/6985f3463a0f4.jpeg",
         "sz": [
           "43",
           "44",
           "45"
         ],
         "imgs": [
-          "https://cdn.cartpe.in/images/gallery_md/685730932020c.jpeg",
-          "https://cdn.cartpe.in/images/gallery_md/685730942d991.jpeg",
-          "https://cdn.cartpe.in/images/gallery_md/685730932c949.jpeg",
-          "https://cdn.cartpe.in/images/gallery_md/685730932aa8e.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5734486d6342.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5733f8c4e7c0.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5733477a63f0.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a573211c02900.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a563b2adbd3e0.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a563228beaa20.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5631c01fdc71.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5624a3a1dac0.jpeg"
+          "https://cdn.cartpe.in/images/gallery_md/6985f3463a0f4.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f34a8cbcb.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f3498ce5f.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f3488b0c5.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f347d4407.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f346eb50f.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a3fd27b75820.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a3fd1b9a8477.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a3fc2de07cec.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6949405f8d00e2.jpg",
+          "https://cdn.cartpe.in/images/gallery_sm/6990731bbaabd.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6974e4182514c2.jpg",
+          "https://cdn.cartpe.in/images/gallery_sm/686bc1411c69b.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6957dd8cdb6910.jpg"
         ],
-        "price": 400,
+        "price": 1800,
         "suggested_price": 400,
         "inStock": true,
-        "sourceSeller": "https://supreme.cartpe.in/adida-ss-samba-white-men-amp-women-lpi568665759-supreme.html",
-        "lastChecked": "2026-07-15T09:08:15.593Z"
+        "sourceSeller": "https://laceupshoe.cartpe.in/adida-s-samba-og-black-white-lpi572804322-laceupshoe.html",
+        "lastChecked": "2026-07-16T06:04:37.636Z"
       },
       {
         "id": "m4",
@@ -167,19 +169,19 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/69f7ad5e8799c1.jpeg",
           "https://cdn.cartpe.in/images/gallery_md/69f7ad5e875b40.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5734486d6342.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5733f8c4e7c0.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a5733f8c59812.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5733477a63f0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a573211c02900.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a563b2adbd3e0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a563228beaa20.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5631c01fdc71.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5624a3a1dac0.jpeg"
+          "https://cdn.cartpe.in/images/gallery_sm/6a56247848e2f0.jpeg"
         ],
-        "price": 400,
+        "price": 1901,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://supreme.cartpe.in/nik-e-airforce-1-black-1st-leather-ua-lpi568666048-supreme.html",
-        "lastChecked": "2026-07-15T09:08:16.033Z"
+        "lastChecked": "2026-07-16T06:04:38.048Z"
       },
       {
         "id": "m5",
@@ -280,11 +282,11 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_sm/6a55f21f83ab40.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a55f061c72c30.jpeg"
         ],
-        "price": 400,
+        "price": 2601,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://supreme.cartpe.in/pum-a-speed-cat-black-pink-npi600923978-supreme.html",
-        "lastChecked": "2026-07-15T09:08:16.443Z"
+        "lastChecked": "2026-07-16T06:04:38.425Z"
       },
       {
         "id": "m11",
@@ -440,19 +442,19 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/6a562fbeb63f83.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a562f9b2cfaa0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a562fe554d0d4.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a56097db06ce0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5609406ebce3.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5608f6b24976.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5255a7845ea0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5255805ae982.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a50c87a940fd2.jpeg"
+          "https://cdn.cartpe.in/images/gallery_sm/6a50c87a940fd2.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a50c83d297150.jpeg"
         ],
         "video": "https://cdn.cartpe.in/images/video_upload/o_1jtgfp2kc1qlsj481oi01227rr58.mp4",
-        "price": 400,
+        "price": 1200,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://fashionfreakclothing.cartpe.in/boss-x-porsche-edition-white-collar-neck-premium-polo-t-shirt-f5040-wh-npi601466999-fashionfreakclothing.html",
-        "lastChecked": "2026-07-15T09:08:18.606Z"
+        "lastChecked": "2026-07-16T06:04:40.565Z"
       },
       {
         "id": "m21",
@@ -494,19 +496,19 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/6a562fe554ee95.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a562f9b2cfaa0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a562fbeb625e2.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a56097db06ce0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5609406ebce3.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5608f6b24976.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5255a7845ea0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5255805ae982.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a50c87a940fd2.jpeg"
+          "https://cdn.cartpe.in/images/gallery_sm/6a50c87a940fd2.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a50c83d297150.jpeg"
         ],
         "video": "https://cdn.cartpe.in/images/video_upload/o_1jtgfph0d11elkcbhsm8d7um58.mp4",
-        "price": 400,
+        "price": 1200,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://fashionfreakclothing.cartpe.in/boss-x-porsche-edition-navy-collar-neck-premium-polo-t-shirt-f5040-ny-npi601464964-fashionfreakclothing.html",
-        "lastChecked": "2026-07-15T09:08:19.207Z"
+        "lastChecked": "2026-07-16T06:04:41.142Z"
       },
       {
         "id": "m23",
@@ -514,7 +516,7 @@ var CATS = {
         "br": "RareStore",
         "cat": "Trackpants",
         "cost": 999,
-        "img": "https://cdn.cartpe.in/images/gallery_sm/6a563af38d0bf5.jpeg",
+        "img": "https://cdn.cartpe.in/images/gallery_sm/6a57804e68dd30.jpeg",
         "sz": [
           "S",
           "M",
@@ -522,24 +524,24 @@ var CATS = {
           "XL"
         ],
         "imgs": [
+          "https://cdn.cartpe.in/images/gallery_sm/6a57804e68dd30.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a5780f8b646b0.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a577fef0d41813.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a577fbbd35a39.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a577f7539ecb11.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a563af38d0bf5.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a563aa812dd54.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a563a65633565.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a55fe02b28900.jpg",
           "https://cdn.cartpe.in/images/gallery_sm/6a51fb2194b0d0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a51fa414aea40.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a4a7edfe342e0.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a4a7e0e9d8570.png",
-          "https://cdn.cartpe.in/images/gallery_sm/6a4a7dc273c780.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a49647920dec0.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a49641789ac90.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a496375c539c0.jpg"
+          "https://cdn.cartpe.in/images/gallery_sm/6a4a7e0e9d8570.png"
         ],
         "price": 400,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://trendy-reseller-in.cartpe.in/track-pants.html",
-        "lastChecked": "2026-07-15T09:08:19.570Z"
+        "lastChecked": "2026-07-16T06:04:41.495Z"
       },
       {
         "id": "m24",
@@ -629,19 +631,19 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/6a562fbeb63f83.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a562f9b2cfaa0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a562fe554d0d4.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a56097db06ce0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5609406ebce3.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5608f6b24976.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5255a7845ea0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5255805ae982.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a50c87a940fd2.jpeg"
+          "https://cdn.cartpe.in/images/gallery_sm/6a50c87a940fd2.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a50c83d297150.jpeg"
         ],
         "video": "https://cdn.cartpe.in/images/video_upload/o_1jtgfp2kc1qlsj481oi01227rr58.mp4",
-        "price": 400,
+        "price": 1200,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://fashionfreakclothing.cartpe.in/boss-x-porsche-edition-white-collar-neck-premium-polo-t-shirt-f5040-wh-npi601466999-fashionfreakclothing.html",
-        "lastChecked": "2026-07-15T09:08:20.237Z"
+        "lastChecked": "2026-07-16T06:04:42.069Z"
       },
       {
         "id": "m30",
@@ -697,19 +699,19 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/69f7ad5e8799c1.jpeg",
           "https://cdn.cartpe.in/images/gallery_md/69f7ad5e875b40.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5734486d6342.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5733f8c4e7c0.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a5733f8c59812.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5733477a63f0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a573211c02900.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a563b2adbd3e0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a563228beaa20.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5631c01fdc71.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5624a3a1dac0.jpeg"
+          "https://cdn.cartpe.in/images/gallery_sm/6a56247848e2f0.jpeg"
         ],
-        "price": 400,
+        "price": 1901,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://supreme.cartpe.in/nik-e-airforce-1-black-1st-leather-ua-lpi568666048-supreme.html",
-        "lastChecked": "2026-07-15T09:08:16.886Z"
+        "lastChecked": "2026-07-16T06:04:38.844Z"
       },
       {
         "id": "w2",
@@ -743,31 +745,33 @@ var CATS = {
         "br": "Adidas",
         "cat": "Shoes",
         "cost": 1501,
-        "img": "https://cdn.cartpe.in/images/gallery_md/685730932020c.jpeg",
+        "img": "https://cdn.cartpe.in/images/gallery_md/6985f3463a0f4.jpeg",
         "sz": [
           "38",
           "39",
           "40"
         ],
         "imgs": [
-          "https://cdn.cartpe.in/images/gallery_md/685730932020c.jpeg",
-          "https://cdn.cartpe.in/images/gallery_md/685730942d991.jpeg",
-          "https://cdn.cartpe.in/images/gallery_md/685730932c949.jpeg",
-          "https://cdn.cartpe.in/images/gallery_md/685730932aa8e.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5734486d6342.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5733f8c4e7c0.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5733477a63f0.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a573211c02900.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a563b2adbd3e0.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a563228beaa20.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5631c01fdc71.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5624a3a1dac0.jpeg"
+          "https://cdn.cartpe.in/images/gallery_md/6985f3463a0f4.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f34a8cbcb.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f3498ce5f.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f3488b0c5.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f347d4407.jpeg",
+          "https://cdn.cartpe.in/images/gallery_md/6985f346eb50f.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a3fd27b75820.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a3fd1b9a8477.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a3fc2de07cec.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6949405f8d00e2.jpg",
+          "https://cdn.cartpe.in/images/gallery_sm/6990731bbaabd.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6974e4182514c2.jpg",
+          "https://cdn.cartpe.in/images/gallery_sm/686bc1411c69b.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6957dd8cdb6910.jpg"
         ],
-        "price": 400,
+        "price": 1800,
         "suggested_price": 400,
         "inStock": true,
-        "sourceSeller": "https://supreme.cartpe.in/adida-ss-samba-white-men-amp-women-lpi568665759-supreme.html",
-        "lastChecked": "2026-07-15T09:08:17.272Z"
+        "sourceSeller": "https://laceupshoe.cartpe.in/adida-s-samba-og-black-white-lpi572804322-laceupshoe.html",
+        "lastChecked": "2026-07-16T06:04:39.273Z"
       },
       {
         "id": "w5",
@@ -831,11 +835,11 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_sm/686bc1411c69b.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6957dd8cdb6910.jpg"
         ],
-        "price": 400,
+        "price": 2201,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://laceupshoe.cartpe.in/onitsuk-a-tiger-mexico-66-navy-beige-lpi572804423-laceupshoe.html",
-        "lastChecked": "2026-07-15T09:08:18.003Z"
+        "lastChecked": "2026-07-16T06:04:39.974Z"
       },
       {
         "id": "w9",
@@ -893,7 +897,7 @@ var CATS = {
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://supreme.cartpe.in/flipflops-footwear.html",
-        "lastChecked": "2026-07-15T09:08:17.665Z"
+        "lastChecked": "2026-07-16T06:04:39.617Z"
       },
       {
         "id": "w12",
@@ -957,22 +961,22 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/6a5690ab1b8a73.jpg",
           "https://cdn.cartpe.in/images/gallery_md/6a5690ab1b7f12.jpg",
           "https://cdn.cartpe.in/images/gallery_md/6a5690ab1b6f31.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a56a61e46cd10.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a56a5cd125890.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a569216505ba0.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5691cfdc3b10.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a569190230b00.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a569165d439f0.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5690fd4df520.jpg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a5690ab1b51a0.jpg"
+          "https://cdn.cartpe.in/images/gallery_sm/6a57fdef427900.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a57fdc2a120a0.png",
+          "https://cdn.cartpe.in/images/gallery_sm/6a57fd8f06e3b0.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a57a873adc400.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a57a83c502320.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a57a7f1abba10.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a578c2ba069c0.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a578c889b9340.jpeg"
         ],
         "suggested_price": 99910699,
         "lowest_seller_price": 99910299,
         "margin_applied": 400,
-        "price": 99910699,
+        "price": 1299,
         "inStock": true,
         "sourceSeller": "https://trendy-reseller-in.cartpe.in/casablanca-oversized-t-shirt-black-npi602303358-trendy-reseller-in.html",
-        "lastChecked": "2026-07-15T09:08:21.276Z"
+        "lastChecked": "2026-07-16T06:04:42.965Z"
       },
       {
         "id": "w16",
@@ -1183,19 +1187,19 @@ var CATS = {
           "https://cdn.cartpe.in/images/gallery_md/6a562f9b2d2691.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a562fbeb625e2.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a562fe554d0d4.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a56097db06ce0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5609406ebce3.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5608f6b24976.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5255a7845ea0.jpeg",
           "https://cdn.cartpe.in/images/gallery_sm/6a5255805ae982.jpeg",
-          "https://cdn.cartpe.in/images/gallery_sm/6a50c87a940fd2.jpeg"
+          "https://cdn.cartpe.in/images/gallery_sm/6a50c87a940fd2.jpeg",
+          "https://cdn.cartpe.in/images/gallery_sm/6a50c83d297150.jpeg"
         ],
         "video": "https://cdn.cartpe.in/images/video_upload/o_1jtgfoid4ltt1ef19tui5i1mn88.mp4",
-        "price": 400,
+        "price": 1200,
         "suggested_price": 400,
         "inStock": true,
         "sourceSeller": "https://fashionfreakclothing.cartpe.in/boss-x-porsche-edition-black-collar-neck-premium-polo-t-shirt-f5040-bl-npi601469028-fashionfreakclothing.html",
-        "lastChecked": "2026-07-15T09:08:20.864Z"
+        "lastChecked": "2026-07-16T06:04:42.603Z"
       },
       {
         "id": "k8",
