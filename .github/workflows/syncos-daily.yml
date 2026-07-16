@@ -1,0 +1,31 @@
+name: SyncOS Daily Run
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  run-syncos:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+      - run: npm ci
+      - name: Run SyncOS
+        run: NODE_ENV=production node syncos/core.js FULL
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "syncos: daily catalog update"
+          branch: "syncos/${{ github.run_id }}"
+          delete-branch: true
+          title: "🔄 SyncOS Daily Update"
+          body: "Auto-generated catalog updates from SyncOS."

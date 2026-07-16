@@ -1,0 +1,105 @@
+CREATE TABLE products (
+  id TEXT PRIMARY KEY,
+  brand TEXT,
+  category TEXT,
+  internal_name TEXT,
+  margin_rules TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE suppliers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  product_id TEXT,
+  supplier_id TEXT,
+  url TEXT,
+  price REAL,
+  stock BOOLEAN,
+  sizes TEXT,
+  media TEXT,
+  health_score TEXT,
+  last_sync DATETIME,
+  FOREIGN KEY (product_id) REFERENCES products(id),
+  UNIQUE(product_id, supplier_id)
+);
+CREATE TABLE sqlite_sequence(name,seq);
+CREATE TABLE sync_jobs (
+  id TEXT PRIMARY KEY,
+  run_id TEXT,
+  product_id TEXT,
+  target_url TEXT,
+  status TEXT DEFAULT 'QUEUED', -- QUEUED, SCRAPING, SCRAPED, VALIDATED, MERGED, CATALOG_READY, PUBLISHED, FAILED
+  payload TEXT,
+  retries INTEGER DEFAULT 0,
+  error_msg TEXT,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE sync_metrics (
+  run_id TEXT PRIMARY KEY,
+  start_time DATETIME DEFAULT CURRENT_TIMESTAMP,
+  end_time DATETIME,
+  duration INTEGER,
+  products_scanned INTEGER DEFAULT 0,
+  products_updated INTEGER DEFAULT 0,
+  products_skipped INTEGER DEFAULT 0,
+  retries INTEGER DEFAULT 0,
+  failed_products INTEGER DEFAULT 0,
+  average_scrape_time REAL DEFAULT 0,
+  average_validation_time REAL DEFAULT 0,
+  average_merge_time REAL DEFAULT 0
+);
+CREATE TABLE sync_logs (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  run_id TEXT,
+  level TEXT,
+  module TEXT,
+  message TEXT,
+  metadata TEXT,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE price_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  product_id TEXT,
+  supplier_id TEXT,
+  old_price REAL,
+  new_price REAL,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE stock_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  product_id TEXT,
+  supplier_id TEXT,
+  old_stock BOOLEAN,
+  new_stock BOOLEAN,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE seller_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  product_id TEXT,
+  supplier_id TEXT,
+  event TEXT, -- e.g. "SELLER_ADDED", "SELLER_REMOVED", "URL_CHANGED"
+  metadata TEXT,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE media_history (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  product_id TEXT,
+  supplier_id TEXT,
+  action TEXT, -- e.g. "FINGERPRINT_ADDED"
+  media_url TEXT,
+  fingerprint TEXT,
+  timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+CREATE TABLE validation_reports (
+  id TEXT PRIMARY KEY,
+  run_id TEXT,
+  timestamp DATETIME,
+  status TEXT,
+  total_differences INTEGER,
+  failed_checks TEXT,
+  report_data TEXT,
+  legacy_catalog_hash TEXT,
+  syncos_catalog_hash TEXT,
+  products_compared INTEGER,
+  execution_duration_ms INTEGER,
+  validation_version TEXT
+);

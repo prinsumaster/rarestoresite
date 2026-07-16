@@ -1,0 +1,7 @@
+{
+  "concurrency": 10,
+  "timeout_ms": 30000,
+  "max_retries": 3,
+  "log_level": "info",
+  "modes": ["INCREMENTAL"]
+}

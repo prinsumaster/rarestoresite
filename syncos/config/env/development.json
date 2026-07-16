@@ -1,0 +1,7 @@
+{
+  "concurrency": 2,
+  "timeout_ms": 60000,
+  "max_retries": 1,
+  "log_level": "debug",
+  "modes": ["DRY_RUN"]
+}

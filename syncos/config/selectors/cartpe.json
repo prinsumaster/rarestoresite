@@ -1,0 +1,13 @@
+{
+  "price": ".price_div .text-danger",
+  "name": [
+    "[itemtype*='schema.org/Product'] [itemprop='name']",
+    ".product-title",
+    "h1"
+  ],
+  "sizes": ".size_click:not(.disabled)",
+  "allSizes": ".size_click",
+  "sizeUI": ".sze_div",
+  "images": "#slider .slides img",
+  "video": "iframe[src*='youtube']"
+}
