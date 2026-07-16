@@ -705,7 +705,7 @@ PRODUCT FORMAT:
 <script src="data.js"></script>
 <script>
 
-function allP(){var r=[];['men','women','kids'].forEach(function(k){r=r.concat(CATS[k].items);});return r;}
+function allP(){var r=[];['men','women','kids'].forEach(function(k){if(CATS[k]&&CATS[k].items)r=r.concat(CATS[k].items);});return r;}
 function rupee(c){return '₹'+(c+M).toLocaleString('en-IN');}
 
 // LOCK
@@ -814,7 +814,18 @@ function renderGrid(gid,items){
   items.forEach(function(p){g.appendChild(makeCard(p));});
 }
 function renderHomeGrid(){
-  renderGrid('homeGrid',[CATS.men.items[0],CATS.men.items[1],CATS.men.items[4],CATS.men.items[12],CATS.women.items[0],CATS.women.items[1],CATS.kids.items[0],CATS.kids.items[2]]);
+  var homeItems=[];
+  if(CATS.men && CATS.men.items) {
+    homeItems.push(CATS.men.items[0],CATS.men.items[1],CATS.men.items[4],CATS.men.items[12]);
+  }
+  if(CATS.women && CATS.women.items) {
+    homeItems.push(CATS.women.items[0],CATS.women.items[1]);
+  }
+  if(CATS.kids && CATS.kids.items) {
+    homeItems.push(CATS.kids.items[0],CATS.kids.items[2]);
+  }
+  homeItems = homeItems.filter(Boolean);
+  renderGrid('homeGrid',homeItems);
 }
 
 // CARD

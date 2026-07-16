@@ -1,0 +1,7 @@
+package.json
+package-lock.json
+node_modules
+syncos
+debug_frontend.js
+scripts
+.github
