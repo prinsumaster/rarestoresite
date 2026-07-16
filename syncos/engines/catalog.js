@@ -12,21 +12,23 @@ class CatalogBuilder {
     // Group by category
     for (const p of mergedProducts) {
       let catKey = (p.cat || 'other').toLowerCase();
-      // Handle the "Men", "Women", "Kids" top-level keys mapped from the current frontend
-      // The frontend expects top level to be "men", "women" etc. 
-      // This logic will need to be configured based on tags or collections,
-      // but for this v3 schema we'll infer it (e.g., if category is "Shoes", map to "men").
-      // To strictly match legacy data.js structure, we use generic top level keys.
-      // Assuming all our current catalog is 'men'
-      if (!cats['men']) {
-        cats['men'] = {
-          label: "Men",
-          filters: ["All", "Shoes", "Jeans", "Shirts", "Trackpants", "Watches", "Goggles", "Flip Flops", "Traditional"],
+      // Derive top-level category from ID prefix
+      let topCat = 'men';
+      if (p.id.startsWith('w')) topCat = 'women';
+      if (p.id.startsWith('k')) topCat = 'kids';
+
+      // Define default filters
+      const defaultFilters = ["All", "Shoes", "Jeans", "Shirts", "Trackpants", "Watches", "Goggles", "Flip Flops", "Traditional"];
+
+      if (!cats[topCat]) {
+        cats[topCat] = {
+          label: topCat.charAt(0).toUpperCase() + topCat.slice(1),
+          filters: defaultFilters,
           items: []
         };
       }
       
-      cats['men'].items.push(p);
+      cats[topCat].items.push(p);
     }
 
     // Output data.js
