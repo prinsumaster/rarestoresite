@@ -1,17 +1,17 @@
 {
-  "price": ".price_div .text-danger",
   "name": [
-    "[itemtype*='schema.org/Product'] [itemprop='name']",
-    ".product-title",
-    "h1"
+    { "selector": "#pd_name", "priority": 1 }
   ],
-  "sizes": ".size_click:not(.disabled)",
-  "allSizes": ".size_click",
-  "sizeUI": ".sze_div",
-  "images": "#slider .slides img",
-  "fallbackImages": ".flexslider .slides img, .product-gallery img",
-  "excludeImages": ".single-related-product",
-  "video": "iframe[src*='youtube']",
-  "videos": "#view_video video source, #view_video video",
-  "addToCartBtn": ".btn-cart, .add-to-cart"
+  "price": [
+    { "selector": "#pd_price", "priority": 1 }
+  ],
+  "images": [
+    { "selector": ".swiper-wrapper img.rounded-3", "priority": 1 }
+  ],
+  "variants": [
+    { "selector": ".size_btn", "priority": 1 }
+  ],
+  "out_of_stock": [
+    { "selector": "#stock_status:contains('Out of stock')", "priority": 1 }
+  ]
 }

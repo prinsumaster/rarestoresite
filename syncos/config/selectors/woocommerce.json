@@ -1,0 +1,19 @@
+{
+  "name": [
+    { "selector": ".product_title", "priority": 1 },
+    { "selector": "h1.entry-title", "priority": 2 }
+  ],
+  "price": [
+    { "selector": ".price ins .amount", "priority": 1 },
+    { "selector": ".price .amount", "priority": 2 }
+  ],
+  "images": [
+    { "selector": ".woocommerce-product-gallery__image img", "priority": 1 }
+  ],
+  "variants": [
+    { "selector": "select[name^='attribute_'] option", "priority": 1 }
+  ],
+  "out_of_stock": [
+    { "selector": ".out-of-stock", "priority": 1 }
+  ]
+}

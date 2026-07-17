@@ -1,56 +1,70 @@
-const axios = require('axios');
-const xml2js = require('xml2js');
+const puppeteer = require('puppeteer');
 
 class DiscoveryEngine {
-  /**
-   * Discovers new products from a seller's domain using sitemaps.
-   * @param {string} domain 
-   * @param {object} pluginCapabilities 
-   * @returns {Promise<string[]>} Array of product URLs
-   */
-  async discover(domain, pluginCapabilities) {
-    let urls = [];
-
-    if (pluginCapabilities.supportsSitemaps) {
-      urls = await this.trySitemaps(domain);
-    }
-
-    if (urls.length === 0 && pluginCapabilities.supportsPagination) {
-      // Fallback to crawling categories (not fully implemented for now)
-      console.log(`No sitemap found for ${domain}, falling back to pagination (stub)`);
-    }
-
-    return urls;
-  }
-
-  async trySitemaps(domain) {
-    const variants = ['/sitemap.xml', '/sitemap_products.xml', '/sitemap-products.xml'];
-    let allProductUrls = new Set();
+  async fingerprint(url) {
+    const browser = await puppeteer.launch({ headless: 'new', args: ['--no-sandbox'] });
+    const page = await browser.newPage();
     
-    for (const variant of variants) {
-      const url = `${domain.replace(/\/$/, '')}${variant}`;
-      try {
-        const res = await axios.get(url, { timeout: 15000, headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) SyncOS' } });
-        if (res.status === 200 && typeof res.data === 'string' && res.data.includes('<?xml')) {
-          const parser = new xml2js.Parser();
-          const parsed = await parser.parseStringPromise(res.data);
-          
-          let urls = [];
-          if (parsed.urlset && parsed.urlset.url) {
-            urls = parsed.urlset.url.map(u => (typeof u.loc[0] === 'string' ? u.loc[0] : u.loc[0]._));
-          }
+    let apis = [];
+    let isGraphQL = false;
 
-          if (urls.length > 0) {
-            const productUrls = urls.filter(u => u.endsWith('.html') && !u.includes('contact') && !u.includes('about'));
-            productUrls.forEach(u => allProductUrls.add(u));
-          }
-        }
-      } catch (err) {
-        // Ignore 404s for sitemaps
-      }
+    page.on('response', async (res) => {
+      const u = res.url();
+      if (u.includes('graphql')) isGraphQL = true;
+      if (res.headers()['content-type']?.includes('application/json')) apis.push(u);
+    });
+
+    try {
+      const response = await page.goto(url, { waitUntil: 'networkidle2', timeout: 30000 });
+      const html = await page.content();
+      const headers = response.headers();
+
+      // Fingerprint Framework & Platform
+      let platform = 'custom';
+      if (html.includes('Shopify.theme')) platform = 'shopify';
+      else if (html.includes('woocommerce') || headers['x-powered-by']?.includes('WooCommerce')) platform = 'woocommerce';
+      else if (url.includes('cartpe.in') || html.includes('cartpe')) platform = 'cartpe';
+      else if (html.includes('Magento')) platform = 'magento';
+      else if (html.includes('BigCommerce')) platform = 'bigcommerce';
+
+      let framework = 'vanilla';
+      if (html.includes('__NEXT_DATA__')) framework = 'nextjs';
+      else if (html.includes('__NUXT__')) framework = 'nuxt';
+      else if (html.includes('data-reactroot')) framework = 'react';
+      else if (html.includes('data-v-')) framework = 'vue';
+
+      // Check Capabilities
+      const hasJsonLd = html.includes('application/ld+json');
+      const hasOpenGraph = html.includes('property="og:');
+      
+      const capabilities = await page.evaluate(() => {
+        return {
+          title: !!document.querySelector('h1, .product-title'),
+          price: !!document.querySelector('.price, [itemprop="price"]'),
+          images: document.querySelectorAll('img').length > 5,
+          variants: !!document.querySelector('select, [type="radio"], .swatch'),
+          reviews: !!document.querySelector('.review, .rating, [itemprop="aggregateRating"]'),
+          specifications: !!document.querySelector('table, .specs, .specifications'),
+          shipping: document.body.innerText.toLowerCase().includes('shipping')
+        };
+      });
+
+      await browser.close();
+
+      return {
+        url,
+        platform,
+        framework,
+        jsonLdAvailable: hasJsonLd,
+        openGraphAvailable: hasOpenGraph,
+        apiEndpoints: apis.length,
+        hasGraphQL: isGraphQL,
+        capabilities
+      };
+    } catch (err) {
+      await browser.close();
+      throw err;
     }
-
-    return Array.from(allProductUrls);
   }
 }
 

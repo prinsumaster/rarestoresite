@@ -1,0 +1,21 @@
+{
+  "name": [
+    { "selector": ".product-title", "priority": 1 },
+    { "selector": "h1", "priority": 2 }
+  ],
+  "price": [
+    { "selector": ".price-item--sale", "priority": 1 },
+    { "selector": ".price-item--regular", "priority": 2 },
+    { "selector": ".price", "priority": 3 }
+  ],
+  "images": [
+    { "selector": ".product-gallery img", "priority": 1 },
+    { "selector": ".product__media img", "priority": 2 }
+  ],
+  "variants": [
+    { "selector": ".swatch-element", "priority": 1 }
+  ],
+  "out_of_stock": [
+    { "selector": ".sold-out-text", "priority": 1 }
+  ]
+}

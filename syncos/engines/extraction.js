@@ -22,25 +22,32 @@ class ExtractionEngine {
   }
 
   async runPlugin(url) {
-    await this.init();
-    
-    // Automatically detect plugin from URL (e.g. shopify, woocommerce, or fallback to cartpe)
-    let pluginName = 'cartpe';
-    if (url.includes('shopify.com')) pluginName = 'shopify';
-    else if (url.includes('woocommerce')) pluginName = 'woocommerce';
-    
-    const plugin = require(`../plugins/${pluginName}.js`);
-    
-    const page = await this.browser.newPage();
+    // Note: The universal extractor handles its own browser instance for simplicity in this MVP orchestration layer,
+    // but in a heavily parallel production environment, we'd pass this.browser down.
+    const universalExtractor = require('./universal_extractor.js');
     const startTime = Date.now();
+    
     try {
-      const data = await plugin.extract(page, url);
-      const responseTime = Date.now() - startTime;
-      await page.close();
-      data.response_time = responseTime;
-      return data;
+      const data = await universalExtractor.extract(url);
+      data.response_time = Date.now() - startTime;
+      
+      // Adapt universal data format slightly to maintain backward compatibility with merge engine's expectations 
+      // of pluginData shape for name, price, stock, sizes, media.
+      const legacyFormat = data.pluginData || {
+        name: { value: '', status: 'failed' },
+        price: { value: null, status: 'failed' },
+        stock: { value: false, status: 'failed' },
+        sizes: { value: [], status: 'failed' },
+        media: { value: { gallery: [] }, status: 'failed' }
+      };
+      
+      return {
+        ...legacyFormat,
+        rich_data: data, // Attach the new v6 intelligence payload here
+        response_time: data.response_time
+      };
+
     } catch (err) {
-      await page.close();
       const responseTime = Date.now() - startTime;
       
       let errorMsg = `DOM Extraction Failure: ${err.message}`;

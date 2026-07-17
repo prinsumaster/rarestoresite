@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const db = require('./db/db');
+const saveRichData = require('./db/save_rich_data.js');
 const crypto = require('crypto');
 const queue = require('./engines/queue');
 
-const extraction = require('./engines/extraction');
+const extraction = require('./engines/extraction.js');
 const validation = require('./engines/validation');
 const health = require('./engines/health');
 const merge = require('./engines/merge');
@@ -134,13 +135,14 @@ class SyncOS {
           });
           const status = job.error_msg ? 'ERROR' : 'SUCCESS';
           const payloadHash = crypto.createHash('sha256').update(JSON.stringify(validatedData)).digest('hex');
+          const descriptionHtml = rawData.description_html || null;
 
           if (!existingSupplier) {
             isChanged = true;
             await db.run(
-              `INSERT INTO suppliers (product_id, supplier_id, seller_url, price, stock, sizes, media, health_score, last_sync, title, validation, response_time, retry_count, hash, status)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?)`,
-              [job.product_id, 'plugin_seller', url, newPrice, newStock, newSizes, newMedia, healthScore, title, validationJson, responseTime, job.retries, payloadHash, status]
+              `INSERT INTO suppliers (product_id, supplier_id, seller_url, price, stock, sizes, media, health_score, last_sync, title, validation, response_time, retry_count, hash, status, description_html)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, ?, ?, ?, ?, ?, ?, ?)`,
+              [job.product_id, 'plugin_seller', url, newPrice, newStock, newSizes, newMedia, healthScore, title, validationJson, responseTime, job.retries, payloadHash, status, descriptionHtml]
             );
             
             await db.run(`INSERT INTO seller_history (product_id, supplier_id, event, metadata) VALUES (?, ?, ?, ?)`, 
@@ -156,14 +158,14 @@ class SyncOS {
               await db.run(`INSERT INTO stock_history (product_id, supplier_id, old_stock, new_stock) VALUES (?, ?, ?, ?)`, 
                            [job.product_id, existingSupplier.supplier_id, existingSupplier.stock, newStock]);
             }
-            if (existingSupplier.sizes !== newSizes || existingSupplier.media !== newMedia || existingSupplier.health_score !== healthScore || existingSupplier.hash !== payloadHash) {
+            if (existingSupplier.sizes !== newSizes || existingSupplier.media !== newMedia || existingSupplier.health_score !== healthScore || existingSupplier.hash !== payloadHash || existingSupplier.description_html !== descriptionHtml) {
               isChanged = true;
             }
 
             if (isChanged) {
               await db.run(
-                `UPDATE suppliers SET price = ?, stock = ?, sizes = ?, media = ?, health_score = ?, last_sync = CURRENT_TIMESTAMP, title = ?, validation = ?, response_time = ?, retry_count = ?, hash = ?, status = ? WHERE id = ?`,
-                [newPrice, newStock, newSizes, newMedia, healthScore, title, validationJson, responseTime, job.retries, payloadHash, status, existingSupplier.id]
+                `UPDATE suppliers SET price = ?, stock = ?, sizes = ?, media = ?, health_score = ?, last_sync = CURRENT_TIMESTAMP, title = ?, validation = ?, response_time = ?, retry_count = ?, hash = ?, status = ?, description_html = ? WHERE id = ?`,
+                [newPrice, newStock, newSizes, newMedia, healthScore, title, validationJson, responseTime, job.retries, payloadHash, status, descriptionHtml, existingSupplier.id]
               );
             } else {
               // Just update last_sync and minor fields
@@ -171,10 +173,20 @@ class SyncOS {
             }
           }
 
+          // v6.0 Persistence
+          if (validatedData.rich_data) {
+            await saveRichData(db, job.product_id, 'plugin_seller', validatedData.rich_data);
+          }
+
           if (isChanged) {
             await db.run(`UPDATE sync_metrics SET products_updated = products_updated + 1 WHERE run_id = ?`, [runId]);
           } else {
             await db.run(`UPDATE sync_metrics SET products_skipped = products_skipped + 1 WHERE run_id = ?`, [runId]);
+          }
+
+          // AI Enrichment Queue Integration (v10.1)
+          if (rawData.ai?.requiresEnrichment) {
+            await db.run(`INSERT INTO ai_enrichment_queue (product_id, status, reason) VALUES (?, 'Pending', ?)`, [job.product_id, rawData.ai.reason]);
           }
 
           await db.commitTransaction();
@@ -200,7 +212,7 @@ class SyncOS {
     const mergeStart = Date.now();
     for (const p of products) {
       const suppliers = await db.all(`SELECT * FROM suppliers WHERE product_id = ?`, [p.id]);
-      const mergedPayload = merge.merge(p, suppliers);
+      const mergedPayload = await merge.merge(db, p, suppliers);
       mergedProducts.push(mergedPayload);
     }
     const mergeTime = Date.now() - mergeStart;

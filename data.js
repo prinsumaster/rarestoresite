@@ -39,7 +39,16 @@ var CATS = {
           "45"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.274Z"
+        "lastChecked": "2026-07-16T12:08:10.274Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m1",
@@ -152,7 +161,16 @@ var CATS = {
           "44"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m6",
@@ -175,7 +193,16 @@ var CATS = {
           "45"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m7",
@@ -195,7 +222,16 @@ var CATS = {
           "44"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m8",
@@ -218,7 +254,16 @@ var CATS = {
           "45"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m9",
@@ -240,7 +285,16 @@ var CATS = {
           "45"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m10",
@@ -282,7 +336,16 @@ var CATS = {
           "45"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m12",
@@ -304,7 +367,16 @@ var CATS = {
           "UK9.5/EU44"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m13",
@@ -325,7 +397,16 @@ var CATS = {
           "UK9/EU43"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m14",
@@ -346,7 +427,16 @@ var CATS = {
           "UK9/EU43"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m15",
@@ -368,7 +458,16 @@ var CATS = {
           "UK8.5/EU43"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m16",
@@ -388,7 +487,16 @@ var CATS = {
           "UK10/EU45"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m17",
@@ -411,7 +519,16 @@ var CATS = {
           "36"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m18",
@@ -433,7 +550,16 @@ var CATS = {
           "34"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m19",
@@ -455,7 +581,16 @@ var CATS = {
           "36"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m20",
@@ -505,7 +640,16 @@ var CATS = {
           "XL"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m22",
@@ -570,7 +714,16 @@ var CATS = {
           "XL"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m25",
@@ -589,7 +742,16 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m26",
@@ -608,7 +770,16 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m27",
@@ -627,7 +798,16 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m28",
@@ -646,7 +826,16 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "m29",
@@ -696,7 +885,16 @@ var CATS = {
           "XL"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       }
     ]
   },
@@ -756,7 +954,16 @@ var CATS = {
           "40"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w3",
@@ -776,7 +983,16 @@ var CATS = {
           "39"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w4",
@@ -820,7 +1036,16 @@ var CATS = {
           "40"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w6",
@@ -840,7 +1065,16 @@ var CATS = {
           "39"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.279Z"
+        "lastChecked": "2026-07-16T12:08:10.279Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w7",
@@ -860,7 +1094,16 @@ var CATS = {
           "38"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.280Z"
+        "lastChecked": "2026-07-16T12:08:10.280Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w8",
@@ -901,7 +1144,16 @@ var CATS = {
           "40"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.280Z"
+        "lastChecked": "2026-07-16T12:08:10.280Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w10",
@@ -922,7 +1174,16 @@ var CATS = {
           "UK7/EU40"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.280Z"
+        "lastChecked": "2026-07-16T12:08:10.280Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w11",
@@ -960,7 +1221,16 @@ var CATS = {
           "32"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.280Z"
+        "lastChecked": "2026-07-16T12:08:10.280Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w13",
@@ -981,7 +1251,16 @@ var CATS = {
           "30"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.280Z"
+        "lastChecked": "2026-07-16T12:08:10.280Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w14",
@@ -1003,7 +1282,16 @@ var CATS = {
           "L"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.280Z"
+        "lastChecked": "2026-07-16T12:08:10.280Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w15",
@@ -1047,7 +1335,16 @@ var CATS = {
           "L"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.280Z"
+        "lastChecked": "2026-07-16T12:08:10.280Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w17",
@@ -1068,7 +1365,16 @@ var CATS = {
           "L"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.280Z"
+        "lastChecked": "2026-07-16T12:08:10.280Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w18",
@@ -1087,7 +1393,16 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w19",
@@ -1106,7 +1421,16 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w20",
@@ -1128,7 +1452,16 @@ var CATS = {
           "L"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "w21",
@@ -1150,7 +1483,16 @@ var CATS = {
           "L"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       }
     ]
   },
@@ -1188,7 +1530,16 @@ var CATS = {
           "UK4"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k2",
@@ -1210,7 +1561,16 @@ var CATS = {
           "UK4"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k3",
@@ -1232,7 +1592,16 @@ var CATS = {
           "UK5"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k4",
@@ -1253,7 +1622,16 @@ var CATS = {
           "EU38"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k5",
@@ -1275,7 +1653,16 @@ var CATS = {
           "9-10Y"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k6",
@@ -1296,7 +1683,16 @@ var CATS = {
           "7-8Y"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k7",
@@ -1345,7 +1741,16 @@ var CATS = {
           "9-10Y"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k9",
@@ -1367,7 +1772,16 @@ var CATS = {
           "9-10Y"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k10",
@@ -1386,7 +1800,16 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k11",
@@ -1405,7 +1828,16 @@ var CATS = {
           "One Size"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       },
       {
         "id": "k12",
@@ -1427,7 +1859,16 @@ var CATS = {
           "9-10Y"
         ],
         "inStock": true,
-        "lastChecked": "2026-07-16T12:08:10.281Z"
+        "lastChecked": "2026-07-16T12:08:10.281Z",
+        "rich_data": {
+          "specifications": [],
+          "product_attributes": {
+            "subtitle": null,
+            "sku": null,
+            "material": null,
+            "color": null
+          }
+        }
       }
     ]
   }
